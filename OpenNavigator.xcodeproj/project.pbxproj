@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA14533D15AAD8D7007E968D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA14533C15AAD8D7007E968D /* Cocoa.framework */; };
+		AA14534715AAD8D7007E968D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA14534515AAD8D7007E968D /* InfoPlist.strings */; };
+		AA14534915AAD8D7007E968D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14534815AAD8D7007E968D /* main.m */; };
+		AA14534D15AAD8D7007E968D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AA14534B15AAD8D7007E968D /* Credits.rtf */; };
+		AA14535015AAD8D7007E968D /* OpenNavAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14534F15AAD8D7007E968D /* OpenNavAppDelegate.m */; };
+		AA14535315AAD8D8007E968D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA14535115AAD8D8007E968D /* MainMenu.xib */; };
+		AA14535B15AAD8D8007E968D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA14535A15AAD8D8007E968D /* SenTestingKit.framework */; };
+		AA14535C15AAD8D8007E968D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA14533C15AAD8D7007E968D /* Cocoa.framework */; };
+		AA14536415AAD8D8007E968D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA14536215AAD8D8007E968D /* InfoPlist.strings */; };
+		AA14536715AAD8D8007E968D /* OpenNavigatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14536615AAD8D8007E968D /* OpenNavigatorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA14535D15AAD8D8007E968D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA14532F15AAD8D7007E968D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA14533715AAD8D7007E968D;
+			remoteInfo = OpenNavigator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA14533815AAD8D7007E968D /* OpenNavigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenNavigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA14533C15AAD8D7007E968D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AA14533F15AAD8D7007E968D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		AA14534015AAD8D7007E968D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AA14534115AAD8D7007E968D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AA14534415AAD8D7007E968D /* OpenNavigator-Info.plist */ = {isa = PBXFileReference; path = "OpenNavigator-Info.plist"; sourceTree = "<group>"; };
+		AA14534615AAD8D7007E968D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AA14534815AAD8D7007E968D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AA14534A15AAD8D7007E968D /* OpenNavigator-Prefix.pch */ = {isa = PBXFileReference; path = "OpenNavigator-Prefix.pch"; sourceTree = "<group>"; };
+		AA14534C15AAD8D7007E968D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		AA14534E15AAD8D7007E968D /* OpenNavAppDelegate.h */ = {isa = PBXFileReference; path = OpenNavAppDelegate.h; sourceTree = "<group>"; };
+		AA14534F15AAD8D7007E968D /* OpenNavAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenNavAppDelegate.m; sourceTree = "<group>"; };
+		AA14535215AAD8D8007E968D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AA14535915AAD8D8007E968D /* OpenNavigatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenNavigatorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA14535A15AAD8D8007E968D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AA14536115AAD8D8007E968D /* OpenNavigatorTests-Info.plist */ = {isa = PBXFileReference; path = "OpenNavigatorTests-Info.plist"; sourceTree = "<group>"; };
+		AA14536315AAD8D8007E968D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AA14536515AAD8D8007E968D /* OpenNavigatorTests.h */ = {isa = PBXFileReference; path = OpenNavigatorTests.h; sourceTree = "<group>"; };
+		AA14536615AAD8D8007E968D /* OpenNavigatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenNavigatorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA14533515AAD8D7007E968D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA14533D15AAD8D7007E968D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA14535515AAD8D8007E968D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA14535B15AAD8D8007E968D /* SenTestingKit.framework in Frameworks */,
+				AA14535C15AAD8D8007E968D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA14532D15AAD8D7007E968D = {
+			isa = PBXGroup;
+			children = (
+				AA14534215AAD8D7007E968D /* OpenNavigator */,
+				AA14535F15AAD8D8007E968D /* OpenNavigatorTests */,
+				AA14533B15AAD8D7007E968D /* Frameworks */,
+				AA14533915AAD8D7007E968D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA14533915AAD8D7007E968D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA14533815AAD8D7007E968D /* OpenNavigator.app */,
+				AA14535915AAD8D8007E968D /* OpenNavigatorTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA14533B15AAD8D7007E968D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA14533C15AAD8D7007E968D /* Cocoa.framework */,
+				AA14535A15AAD8D8007E968D /* SenTestingKit.framework */,
+				AA14533E15AAD8D7007E968D /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA14533E15AAD8D7007E968D /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA14533F15AAD8D7007E968D /* AppKit.framework */,
+				AA14534015AAD8D7007E968D /* CoreData.framework */,
+				AA14534115AAD8D7007E968D /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		AA14534215AAD8D7007E968D /* OpenNavigator */ = {
+			isa = PBXGroup;
+			children = (
+				AA14534E15AAD8D7007E968D /* OpenNavAppDelegate.h */,
+				AA14534F15AAD8D7007E968D /* OpenNavAppDelegate.m */,
+				AA14535115AAD8D8007E968D /* MainMenu.xib */,
+				AA14534315AAD8D7007E968D /* Supporting Files */,
+			);
+			path = OpenNavigator;
+			sourceTree = "<group>";
+		};
+		AA14534315AAD8D7007E968D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA14534415AAD8D7007E968D /* OpenNavigator-Info.plist */,
+				AA14534515AAD8D7007E968D /* InfoPlist.strings */,
+				AA14534815AAD8D7007E968D /* main.m */,
+				AA14534A15AAD8D7007E968D /* OpenNavigator-Prefix.pch */,
+				AA14534B15AAD8D7007E968D /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA14535F15AAD8D8007E968D /* OpenNavigatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA14536515AAD8D8007E968D /* OpenNavigatorTests.h */,
+				AA14536615AAD8D8007E968D /* OpenNavigatorTests.m */,
+				AA14536015AAD8D8007E968D /* Supporting Files */,
+			);
+			path = OpenNavigatorTests;
+			sourceTree = "<group>";
+		};
+		AA14536015AAD8D8007E968D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA14536115AAD8D8007E968D /* OpenNavigatorTests-Info.plist */,
+				AA14536215AAD8D8007E968D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA14533715AAD8D7007E968D /* OpenNavigator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA14536A15AAD8D8007E968D /* Build configuration list for PBXNativeTarget "OpenNavigator" */;
+			buildPhases = (
+				AA14533415AAD8D7007E968D /* Sources */,
+				AA14533515AAD8D7007E968D /* Frameworks */,
+				AA14533615AAD8D7007E968D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenNavigator;
+			productName = OpenNavigator;
+			productReference = AA14533815AAD8D7007E968D /* OpenNavigator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA14535815AAD8D8007E968D /* OpenNavigatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA14536D15AAD8D8007E968D /* Build configuration list for PBXNativeTarget "OpenNavigatorTests" */;
+			buildPhases = (
+				AA14535415AAD8D8007E968D /* Sources */,
+				AA14535515AAD8D8007E968D /* Frameworks */,
+				AA14535615AAD8D8007E968D /* Resources */,
+				AA14535715AAD8D8007E968D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA14535E15AAD8D8007E968D /* PBXTargetDependency */,
+			);
+			name = OpenNavigatorTests;
+			productName = OpenNavigatorTests;
+			productReference = AA14535915AAD8D8007E968D /* OpenNavigatorTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA14532F15AAD8D7007E968D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = AA14533215AAD8D7007E968D /* Build configuration list for PBXProject "OpenNavigator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AA14532D15AAD8D7007E968D;
+			productRefGroup = AA14533915AAD8D7007E968D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA14533715AAD8D7007E968D /* OpenNavigator */,
+				AA14535815AAD8D8007E968D /* OpenNavigatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA14533615AAD8D7007E968D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA14534715AAD8D7007E968D /* InfoPlist.strings in Resources */,
+				AA14534D15AAD8D7007E968D /* Credits.rtf in Resources */,
+				AA14535315AAD8D8007E968D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA14535615AAD8D8007E968D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA14536415AAD8D8007E968D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA14535715AAD8D8007E968D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA14533415AAD8D7007E968D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA14534915AAD8D7007E968D /* main.m in Sources */,
+				AA14535015AAD8D7007E968D /* OpenNavAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA14535415AAD8D8007E968D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA14536715AAD8D8007E968D /* OpenNavigatorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA14535E15AAD8D8007E968D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA14533715AAD8D7007E968D /* OpenNavigator */;
+			targetProxy = AA14535D15AAD8D8007E968D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA14534515AAD8D7007E968D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA14534615AAD8D7007E968D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AA14534B15AAD8D7007E968D /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA14534C15AAD8D7007E968D /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		AA14535115AAD8D8007E968D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA14535215AAD8D8007E968D /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		AA14536215AAD8D8007E968D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA14536315AAD8D8007E968D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA14536815AAD8D8007E968D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AA14536915AAD8D8007E968D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AA14536B15AAD8D8007E968D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenNavigator/OpenNavigator-Prefix.pch";
+				INFOPLIST_FILE = "OpenNavigator/OpenNavigator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AA14536C15AAD8D8007E968D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenNavigator/OpenNavigator-Prefix.pch";
+				INFOPLIST_FILE = "OpenNavigator/OpenNavigator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AA14536E15AAD8D8007E968D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OpenNavigator.app/Contents/MacOS/OpenNavigator";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenNavigator/OpenNavigator-Prefix.pch";
+				INFOPLIST_FILE = "OpenNavigatorTests/OpenNavigatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		AA14536F15AAD8D8007E968D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OpenNavigator.app/Contents/MacOS/OpenNavigator";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenNavigator/OpenNavigator-Prefix.pch";
+				INFOPLIST_FILE = "OpenNavigatorTests/OpenNavigatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA14533215AAD8D7007E968D /* Build configuration list for PBXProject "OpenNavigator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA14536815AAD8D8007E968D /* Debug */,
+				AA14536915AAD8D8007E968D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA14536A15AAD8D8007E968D /* Build configuration list for PBXNativeTarget "OpenNavigator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA14536B15AAD8D8007E968D /* Debug */,
+				AA14536C15AAD8D8007E968D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA14536D15AAD8D8007E968D /* Build configuration list for PBXNativeTarget "OpenNavigatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA14536E15AAD8D8007E968D /* Debug */,
+				AA14536F15AAD8D8007E968D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA14532F15AAD8D7007E968D /* Project object */;
+}

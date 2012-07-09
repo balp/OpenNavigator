@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'OpenNavigator' target in the 'OpenNavigator' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
