@@ -8,6 +8,7 @@
 
 #import "OpenNavigatorTests.h"
 
+
 @implementation OpenNavigatorTests
 
 - (void)setUp
@@ -26,7 +27,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in OpenNavigatorTests");
+ //   STFail(@"Unit tests are not implemented yet in OpenNavigatorTests");
 }
 
 @end

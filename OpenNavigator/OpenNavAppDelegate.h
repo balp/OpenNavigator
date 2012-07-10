@@ -7,9 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class OpenNavOpenGLView;
 
 @interface OpenNavAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet OpenNavOpenGLView *oglview;
 
 @end

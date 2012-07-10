@@ -17,6 +17,11 @@
 		AA14535C15AAD8D8007E968D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA14533C15AAD8D7007E968D /* Cocoa.framework */; };
 		AA14536415AAD8D8007E968D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA14536215AAD8D8007E968D /* InfoPlist.strings */; };
 		AA14536715AAD8D8007E968D /* OpenNavigatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14536615AAD8D8007E968D /* OpenNavigatorTests.m */; };
+		AA14537A15AAE96E007E968D /* OpenNavOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14537915AAE96E007E968D /* OpenNavOpenGLView.m */; };
+		AA14537D15AAEA7A007E968D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA14537C15AAEA7A007E968D /* OpenGL.framework */; };
+		AA14538C15AB561E007E968D /* TestData.osm in Resources */ = {isa = PBXBuildFile; fileRef = AA14538B15AB561E007E968D /* TestData.osm */; };
+		AA14538F15AB56B0007E968D /* OpenNavOsmParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14538E15AB56B0007E968D /* OpenNavOsmParser.m */; };
+		AA14539215AB572A007E968D /* OpenNavOsmParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14539115AB572A007E968D /* OpenNavOsmParserTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +40,28 @@
 		AA14533F15AAD8D7007E968D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		AA14534015AAD8D7007E968D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AA14534115AAD8D7007E968D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AA14534415AAD8D7007E968D /* OpenNavigator-Info.plist */ = {isa = PBXFileReference; path = "OpenNavigator-Info.plist"; sourceTree = "<group>"; };
+		AA14534415AAD8D7007E968D /* OpenNavigator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenNavigator-Info.plist"; sourceTree = "<group>"; };
 		AA14534615AAD8D7007E968D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA14534815AAD8D7007E968D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AA14534A15AAD8D7007E968D /* OpenNavigator-Prefix.pch */ = {isa = PBXFileReference; path = "OpenNavigator-Prefix.pch"; sourceTree = "<group>"; };
+		AA14534A15AAD8D7007E968D /* OpenNavigator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenNavigator-Prefix.pch"; sourceTree = "<group>"; };
 		AA14534C15AAD8D7007E968D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		AA14534E15AAD8D7007E968D /* OpenNavAppDelegate.h */ = {isa = PBXFileReference; path = OpenNavAppDelegate.h; sourceTree = "<group>"; };
+		AA14534E15AAD8D7007E968D /* OpenNavAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenNavAppDelegate.h; sourceTree = "<group>"; };
 		AA14534F15AAD8D7007E968D /* OpenNavAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenNavAppDelegate.m; sourceTree = "<group>"; };
 		AA14535215AAD8D8007E968D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		AA14535915AAD8D8007E968D /* OpenNavigatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenNavigatorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA14535A15AAD8D8007E968D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		AA14536115AAD8D8007E968D /* OpenNavigatorTests-Info.plist */ = {isa = PBXFileReference; path = "OpenNavigatorTests-Info.plist"; sourceTree = "<group>"; };
+		AA14536115AAD8D8007E968D /* OpenNavigatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenNavigatorTests-Info.plist"; sourceTree = "<group>"; };
 		AA14536315AAD8D8007E968D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AA14536515AAD8D8007E968D /* OpenNavigatorTests.h */ = {isa = PBXFileReference; path = OpenNavigatorTests.h; sourceTree = "<group>"; };
+		AA14536515AAD8D8007E968D /* OpenNavigatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenNavigatorTests.h; sourceTree = "<group>"; };
 		AA14536615AAD8D8007E968D /* OpenNavigatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenNavigatorTests.m; sourceTree = "<group>"; };
+		AA14537815AAE96E007E968D /* OpenNavOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNavOpenGLView.h; sourceTree = "<group>"; };
+		AA14537915AAE96E007E968D /* OpenNavOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenNavOpenGLView.m; sourceTree = "<group>"; };
+		AA14537C15AAEA7A007E968D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		AA14538B15AB561E007E968D /* TestData.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestData.osm; sourceTree = "<group>"; };
+		AA14538D15AB56B0007E968D /* OpenNavOsmParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNavOsmParser.h; sourceTree = "<group>"; };
+		AA14538E15AB56B0007E968D /* OpenNavOsmParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenNavOsmParser.m; sourceTree = "<group>"; };
+		AA14539015AB572A007E968D /* OpenNavOsmParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenNavOsmParserTests.h; path = OpenNavigatorTests/OpenNavOsmParserTests.h; sourceTree = SOURCE_ROOT; };
+		AA14539115AB572A007E968D /* OpenNavOsmParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenNavOsmParserTests.m; path = OpenNavigatorTests/OpenNavOsmParserTests.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA14537D15AAEA7A007E968D /* OpenGL.framework in Frameworks */,
 				AA14533D15AAD8D7007E968D /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +89,7 @@
 		AA14532D15AAD8D7007E968D = {
 			isa = PBXGroup;
 			children = (
+				AA14537C15AAEA7A007E968D /* OpenGL.framework */,
 				AA14534215AAD8D7007E968D /* OpenNavigator */,
 				AA14535F15AAD8D8007E968D /* OpenNavigatorTests */,
 				AA14533B15AAD8D7007E968D /* Frameworks */,
@@ -118,6 +133,10 @@
 				AA14534F15AAD8D7007E968D /* OpenNavAppDelegate.m */,
 				AA14535115AAD8D8007E968D /* MainMenu.xib */,
 				AA14534315AAD8D7007E968D /* Supporting Files */,
+				AA14537815AAE96E007E968D /* OpenNavOpenGLView.h */,
+				AA14537915AAE96E007E968D /* OpenNavOpenGLView.m */,
+				AA14538D15AB56B0007E968D /* OpenNavOsmParser.h */,
+				AA14538E15AB56B0007E968D /* OpenNavOsmParser.m */,
 			);
 			path = OpenNavigator;
 			sourceTree = "<group>";
@@ -137,9 +156,12 @@
 		AA14535F15AAD8D8007E968D /* OpenNavigatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				AA14539015AB572A007E968D /* OpenNavOsmParserTests.h */,
+				AA14539115AB572A007E968D /* OpenNavOsmParserTests.m */,
 				AA14536515AAD8D8007E968D /* OpenNavigatorTests.h */,
 				AA14536615AAD8D8007E968D /* OpenNavigatorTests.m */,
 				AA14536015AAD8D8007E968D /* Supporting Files */,
+				AA14538B15AB561E007E968D /* TestData.osm */,
 			);
 			path = OpenNavigatorTests;
 			sourceTree = "<group>";
@@ -226,6 +248,7 @@
 				AA14534715AAD8D7007E968D /* InfoPlist.strings in Resources */,
 				AA14534D15AAD8D7007E968D /* Credits.rtf in Resources */,
 				AA14535315AAD8D8007E968D /* MainMenu.xib in Resources */,
+				AA14538C15AB561E007E968D /* TestData.osm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +285,8 @@
 			files = (
 				AA14534915AAD8D7007E968D /* main.m in Sources */,
 				AA14535015AAD8D7007E968D /* OpenNavAppDelegate.m in Sources */,
+				AA14537A15AAE96E007E968D /* OpenNavOpenGLView.m in Sources */,
+				AA14538F15AB56B0007E968D /* OpenNavOsmParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA14536715AAD8D8007E968D /* OpenNavigatorTests.m in Sources */,
+				AA14539215AB572A007E968D /* OpenNavOsmParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +461,7 @@
 				AA14536C15AAD8D8007E968D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA14536D15AAD8D8007E968D /* Build configuration list for PBXNativeTarget "OpenNavigatorTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +470,7 @@
 				AA14536F15AAD8D8007E968D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
