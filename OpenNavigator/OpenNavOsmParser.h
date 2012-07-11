@@ -8,7 +8,22 @@
 
 #import <AppKit/AppKit.h>
 
-@interface OpenNavOsmParser : NSOpenGLView
+@class OpenNavNode;
+@class OpenNavWay;
+@class OpenNavOSMObject;
+
+@interface OpenNavOsmParser : NSObject <NSXMLParserDelegate>
+{
+    @private
+    NSMutableDictionary* _nodes;
+    NSMutableDictionary* _ways;
+    OpenNavNode* _currentNode;
+    OpenNavOSMObject* _curentObject;
+    OpenNavWay* _currentWay;
+}
 
 - (void) parseOSMData:(NSData*)data;
+- (OpenNavNode*) getNodeByID:(long)nodeid;
+- (OpenNavWay*) getWayByID:(long)wayid;
+
 @end

@@ -22,6 +22,9 @@
 		AA14538C15AB561E007E968D /* TestData.osm in Resources */ = {isa = PBXBuildFile; fileRef = AA14538B15AB561E007E968D /* TestData.osm */; };
 		AA14538F15AB56B0007E968D /* OpenNavOsmParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14538E15AB56B0007E968D /* OpenNavOsmParser.m */; };
 		AA14539215AB572A007E968D /* OpenNavOsmParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14539115AB572A007E968D /* OpenNavOsmParserTests.m */; };
+		AAB0BA5615AC16FE007BCA8C /* OpenNavNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB0BA5515AC16FE007BCA8C /* OpenNavNode.m */; };
+		AAC6E9B115AC4E0500457FFE /* OpenNavWay.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6E9B015AC4E0500457FFE /* OpenNavWay.m */; };
+		AAC6E9B515AC5B7200457FFE /* OpenNavOSMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6E9B415AC5B7200457FFE /* OpenNavOSMObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,12 @@
 		AA14538E15AB56B0007E968D /* OpenNavOsmParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenNavOsmParser.m; sourceTree = "<group>"; };
 		AA14539015AB572A007E968D /* OpenNavOsmParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenNavOsmParserTests.h; path = OpenNavigatorTests/OpenNavOsmParserTests.h; sourceTree = SOURCE_ROOT; };
 		AA14539115AB572A007E968D /* OpenNavOsmParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenNavOsmParserTests.m; path = OpenNavigatorTests/OpenNavOsmParserTests.m; sourceTree = SOURCE_ROOT; };
+		AAB0BA5415AC16FE007BCA8C /* OpenNavNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNavNode.h; sourceTree = "<group>"; };
+		AAB0BA5515AC16FE007BCA8C /* OpenNavNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenNavNode.m; sourceTree = "<group>"; };
+		AAC6E9AF15AC4E0500457FFE /* OpenNavWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNavWay.h; sourceTree = "<group>"; };
+		AAC6E9B015AC4E0500457FFE /* OpenNavWay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenNavWay.m; sourceTree = "<group>"; };
+		AAC6E9B315AC5B7200457FFE /* OpenNavOSMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNavOSMObject.h; sourceTree = "<group>"; };
+		AAC6E9B415AC5B7200457FFE /* OpenNavOSMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenNavOSMObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +146,12 @@
 				AA14537915AAE96E007E968D /* OpenNavOpenGLView.m */,
 				AA14538D15AB56B0007E968D /* OpenNavOsmParser.h */,
 				AA14538E15AB56B0007E968D /* OpenNavOsmParser.m */,
+				AAB0BA5415AC16FE007BCA8C /* OpenNavNode.h */,
+				AAB0BA5515AC16FE007BCA8C /* OpenNavNode.m */,
+				AAC6E9AF15AC4E0500457FFE /* OpenNavWay.h */,
+				AAC6E9B015AC4E0500457FFE /* OpenNavWay.m */,
+				AAC6E9B315AC5B7200457FFE /* OpenNavOSMObject.h */,
+				AAC6E9B415AC5B7200457FFE /* OpenNavOSMObject.m */,
 			);
 			path = OpenNavigator;
 			sourceTree = "<group>";
@@ -287,6 +302,9 @@
 				AA14535015AAD8D7007E968D /* OpenNavAppDelegate.m in Sources */,
 				AA14537A15AAE96E007E968D /* OpenNavOpenGLView.m in Sources */,
 				AA14538F15AB56B0007E968D /* OpenNavOsmParser.m in Sources */,
+				AAB0BA5615AC16FE007BCA8C /* OpenNavNode.m in Sources */,
+				AAC6E9B115AC4E0500457FFE /* OpenNavWay.m in Sources */,
+				AAC6E9B515AC5B7200457FFE /* OpenNavOSMObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

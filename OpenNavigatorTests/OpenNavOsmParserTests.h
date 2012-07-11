@@ -10,6 +10,11 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+@class  OpenNavOsmParser;
+
 @interface OpenNavOsmParserTests : SenTestCase
+{
+    OpenNavOsmParser* dut;
+}
 
 @end
