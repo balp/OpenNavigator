@@ -13,14 +13,14 @@
 
 @interface GLWay : NSObject
 {
-@private
-    NSDictionary* _nodes;
-    NSMutableDictionary* _indexes;
-    GLushort* _wayIndices;
-    GLushort* _wayShortIndices;
-    GLfloat* _wayNodes;
-    size_t _bufferSize;
-    NSUInteger _count;
+@protected
+//    NSDictionary* _nodes;
+//    NSMutableDictionary* _indexes;
+//    GLushort* _wayIndices;
+//    GLushort* _wayShortIndices;
+//    GLfloat* _wayNodes;
+//    size_t _bufferSize;
+//    NSUInteger _count;
     OpenNavWay* _navway;
 }
 //@property (readonly) GLushort* wayIndices;

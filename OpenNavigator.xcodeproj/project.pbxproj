@@ -25,7 +25,14 @@
 		AA44700517A0638400F5FB61 /* GLNodes.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44700417A0638400F5FB61 /* GLNodes.m */; };
 		AA44700817A0673900F5FB61 /* GLNodesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44700717A0673900F5FB61 /* GLNodesTest.m */; };
 		AA44700B17A07D7D00F5FB61 /* GLWay.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44700A17A07D7D00F5FB61 /* GLWay.m */; };
+		AA68EC1917A14EEA00F86794 /* GLWayArea.m in Sources */ = {isa = PBXBuildFile; fileRef = AA68EC1817A14EEA00F86794 /* GLWayArea.m */; };
+		AA68EC1C17A1500300F86794 /* GLWayWetland.m in Sources */ = {isa = PBXBuildFile; fileRef = AA68EC1B17A1500300F86794 /* GLWayWetland.m */; };
 		AAB0BA5615AC16FE007BCA8C /* OpenNavNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB0BA5515AC16FE007BCA8C /* OpenNavNode.m */; };
+		AABE21F217A12A910012163C /* GLWayHighway.m in Sources */ = {isa = PBXBuildFile; fileRef = AABE21F117A12A910012163C /* GLWayHighway.m */; };
+		AABE21F517A12CE10012163C /* GLWayCoastline.m in Sources */ = {isa = PBXBuildFile; fileRef = AABE21F417A12CE10012163C /* GLWayCoastline.m */; };
+		AABE21F817A12FD30012163C /* GLWayPier.m in Sources */ = {isa = PBXBuildFile; fileRef = AABE21F717A12FD30012163C /* GLWayPier.m */; };
+		AABE21FB17A131D10012163C /* GLWayLines.m in Sources */ = {isa = PBXBuildFile; fileRef = AABE21FA17A131D10012163C /* GLWayLines.m */; };
+		AABE21FE17A141320012163C /* GLWayLanduse.m in Sources */ = {isa = PBXBuildFile; fileRef = AABE21FD17A141320012163C /* GLWayLanduse.m */; };
 		AAC6E9B115AC4E0500457FFE /* OpenNavWay.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6E9B015AC4E0500457FFE /* OpenNavWay.m */; };
 		AAC6E9B515AC5B7200457FFE /* OpenNavOSMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6E9B415AC5B7200457FFE /* OpenNavOSMObject.m */; };
 /* End PBXBuildFile section */
@@ -74,8 +81,22 @@
 		AA44700717A0673900F5FB61 /* GLNodesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNodesTest.m; sourceTree = "<group>"; };
 		AA44700917A07D7D00F5FB61 /* GLWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWay.h; sourceTree = "<group>"; };
 		AA44700A17A07D7D00F5FB61 /* GLWay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWay.m; sourceTree = "<group>"; };
+		AA68EC1717A14EEA00F86794 /* GLWayArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWayArea.h; sourceTree = "<group>"; };
+		AA68EC1817A14EEA00F86794 /* GLWayArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWayArea.m; sourceTree = "<group>"; };
+		AA68EC1A17A1500300F86794 /* GLWayWetland.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWayWetland.h; sourceTree = "<group>"; };
+		AA68EC1B17A1500300F86794 /* GLWayWetland.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWayWetland.m; sourceTree = "<group>"; };
 		AAB0BA5415AC16FE007BCA8C /* OpenNavNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNavNode.h; sourceTree = "<group>"; };
 		AAB0BA5515AC16FE007BCA8C /* OpenNavNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenNavNode.m; sourceTree = "<group>"; };
+		AABE21F017A12A910012163C /* GLWayHighway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWayHighway.h; sourceTree = "<group>"; };
+		AABE21F117A12A910012163C /* GLWayHighway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWayHighway.m; sourceTree = "<group>"; };
+		AABE21F317A12CE10012163C /* GLWayCoastline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWayCoastline.h; sourceTree = "<group>"; };
+		AABE21F417A12CE10012163C /* GLWayCoastline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWayCoastline.m; sourceTree = "<group>"; };
+		AABE21F617A12FD30012163C /* GLWayPier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWayPier.h; sourceTree = "<group>"; };
+		AABE21F717A12FD30012163C /* GLWayPier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWayPier.m; sourceTree = "<group>"; };
+		AABE21F917A131D10012163C /* GLWayLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWayLines.h; sourceTree = "<group>"; };
+		AABE21FA17A131D10012163C /* GLWayLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWayLines.m; sourceTree = "<group>"; };
+		AABE21FC17A141320012163C /* GLWayLanduse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWayLanduse.h; sourceTree = "<group>"; };
+		AABE21FD17A141320012163C /* GLWayLanduse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWayLanduse.m; sourceTree = "<group>"; };
 		AAC6E9AF15AC4E0500457FFE /* OpenNavWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNavWay.h; sourceTree = "<group>"; };
 		AAC6E9B015AC4E0500457FFE /* OpenNavWay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenNavWay.m; sourceTree = "<group>"; };
 		AAC6E9B315AC5B7200457FFE /* OpenNavOSMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNavOSMObject.h; sourceTree = "<group>"; };
@@ -164,7 +185,21 @@
 				AA44700317A0638300F5FB61 /* GLNodes.h */,
 				AA44700417A0638400F5FB61 /* GLNodes.m */,
 				AA44700917A07D7D00F5FB61 /* GLWay.h */,
+				AABE21F917A131D10012163C /* GLWayLines.h */,
+				AABE21FA17A131D10012163C /* GLWayLines.m */,
+				AABE21F317A12CE10012163C /* GLWayCoastline.h */,
+				AABE21F417A12CE10012163C /* GLWayCoastline.m */,
+				AABE21F017A12A910012163C /* GLWayHighway.h */,
+				AABE21F117A12A910012163C /* GLWayHighway.m */,
 				AA44700A17A07D7D00F5FB61 /* GLWay.m */,
+				AA68EC1717A14EEA00F86794 /* GLWayArea.h */,
+				AA68EC1817A14EEA00F86794 /* GLWayArea.m */,
+				AABE21FC17A141320012163C /* GLWayLanduse.h */,
+				AA68EC1A17A1500300F86794 /* GLWayWetland.h */,
+				AA68EC1B17A1500300F86794 /* GLWayWetland.m */,
+				AABE21FD17A141320012163C /* GLWayLanduse.m */,
+				AABE21F617A12FD30012163C /* GLWayPier.h */,
+				AABE21F717A12FD30012163C /* GLWayPier.m */,
 			);
 			path = OpenNavigator;
 			sourceTree = "<group>";
@@ -322,6 +357,13 @@
 				AAC6E9B515AC5B7200457FFE /* OpenNavOSMObject.m in Sources */,
 				AA44700517A0638400F5FB61 /* GLNodes.m in Sources */,
 				AA44700B17A07D7D00F5FB61 /* GLWay.m in Sources */,
+				AABE21F217A12A910012163C /* GLWayHighway.m in Sources */,
+				AABE21F517A12CE10012163C /* GLWayCoastline.m in Sources */,
+				AABE21F817A12FD30012163C /* GLWayPier.m in Sources */,
+				AABE21FB17A131D10012163C /* GLWayLines.m in Sources */,
+				AABE21FE17A141320012163C /* GLWayLanduse.m in Sources */,
+				AA68EC1917A14EEA00F86794 /* GLWayArea.m in Sources */,
+				AA68EC1C17A1500300F86794 /* GLWayWetland.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

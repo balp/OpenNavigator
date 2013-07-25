@@ -20,34 +20,35 @@
 @synthesize bufferSize = _bufferSize;
 
 
-- (id) initWithNodes:(NSDictionary*)nodes
+- (id) initWithNodes:(NSDictionary*)nodes andBounds:(NSRect)rect
 {
     if (self = [super init]) {
         _nodes = nodes;
         _indexes = [[NSMutableDictionary alloc] initWithCapacity:[nodes count]];
         _bufferSize = [nodes count] * sizeof(GLfloat) * 3;
         _nodeVertices = malloc(_bufferSize);
-        min_lat = 180;
-        max_lat = -180;
-        min_lon = 180;
-        max_lon = -180;
+        min_lat = NSMinY(rect);
+        max_lat = NSMaxY(rect);
+        min_lon = NSMinX(rect);
+        max_lon = NSMaxX(rect);
         unsigned short cnt = 0;
-        for (OpenNavNode* node in [nodes allValues]) {
-            if([node lat] < min_lat) {
-                min_lat = [node lat];
-            }
-            if([node lat] > max_lat) {
-                max_lat = [node lat];
-            }
-            if([node lon] < min_lon) {
-                min_lon = [node lon];
-            }
-            if([node lon] > max_lon) {
-                max_lon = [node lon];
-            }
-
-
-        }
+//        for (OpenNavNode* node in [nodes allValues]) {
+//            if([node lat] < min_lat) {
+//                min_lat = [node lat];
+//            }
+//            if([node lat] > max_lat) {
+//                max_lat = [node lat];
+//            }
+//            if([node lon] < min_lon) {
+//                min_lon = [node lon];
+//            }
+//            if([node lon] > max_lon) {
+//                max_lon = [node lon];
+//            }
+//
+//
+//        }
+        NSLog(@"Nodes: %f,%f  %f,%f", min_lon, min_lat, max_lon, max_lat);
         for (id nodeID in nodes) {
             OpenNavNode* node = [nodes objectForKey:nodeID];
 //            NSLog(@"InitWithNode: %@", node);
@@ -74,12 +75,15 @@
 
 - (GLfloat)lonToLocal: (double)lon
 {
-//    NSLog(@"lonToLocal: %f = %f %f %f == %f", lon, min_lon, max_lon, max_lon-min_lon, (lon - min_lon) / (max_lon-min_lon));
-    return -5 + ((lon - min_lon) / (max_lon-min_lon))*10.0;
+    GLfloat ret_val = -10 + ((lon - min_lon) / (max_lon-min_lon))*20.0;
+//    NSLog(@"lonToLocal: %f = %f %f %f == %f == %f", lon, min_lon, max_lon, max_lon-min_lon, (lon - min_lon) / (max_lon-min_lon), ret_val);
+    return ret_val;
 }
 - (GLfloat)latToLocal: (double)lat
 {
-    return -5+((lat - min_lat)/(max_lat-min_lat)) * 10.0;
+    GLfloat ret_val = -10+((lat - min_lat)/(max_lat-min_lat)) * 20.0;
+//    NSLog(@"latToLocal: %f = %f %f %f == %f == %f", lat, min_lat, max_lat, max_lat-min_lat, (lat - min_lat) / (max_lat-min_lat), ret_val);
+    return -10+((lat - min_lat)/(max_lat-min_lat)) * 20.0;
 }
 
 - (GLushort) indexOfNodeWithId: (NSNumber*)nodeid

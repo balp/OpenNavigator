@@ -13,6 +13,7 @@
 @private
     NSMutableDictionary* _tags;
 }
+@property (readonly) NSDictionary* tags;
 
 - (BOOL) haveTag:(NSString*)tag;
 - (void) setTag:(NSString*)key to:(NSString*)value;

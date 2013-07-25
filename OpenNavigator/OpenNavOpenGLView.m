@@ -47,8 +47,6 @@
         -1,1,-1, // 7
 	};
 
-
-
     glGenBuffers(1, &verticesVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, verticesVBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(corners), corners, GL_STATIC_DRAW);
@@ -82,15 +80,22 @@
     glGenBuffers(1, &indicesVBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesVBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cube), cube, GL_STATIC_DRAW);
+	static const GLfloat linecorners[] = {
+        10,10,0,   // 0
+        -10,10,0, // 1
+        -10,-10,0,  // 2
+        10,-10,0,  // 3
+	};
+
+    glGenBuffers(1, &lineVerticesVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, lineVerticesVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(linecorners), linecorners, GL_STATIC_DRAW);
 
     static const GLushort lines[] = {
         0,1,
         1,2,
         2,3,
-        3,4,
-        5,6,
-        6,7,
-        7,0,
+        3,0,
     };
     glGenBuffers(1, &lineIndicesVBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, lineIndicesVBO);
@@ -159,11 +164,26 @@
     
     NSLog(@"drawRect:...");
     if(_parser != nil) { // We have a parser, lets draw all ways as a start.
-        GLNodes* nodes = [[GLNodes alloc] initWithNodes:[_parser nodes]];
+    
         static GLfloat angle = 0.0f;
         angle += 60.0f * (1/60.0);
+        glLoadIdentity();
+        glTranslatef(-0.0f, -0.0f, -15.75f);
+
+        glColor4f(0.7f, 0.7f, 0.7f, 1.0f);
+        glEnableClientState(GL_VERTEX_ARRAY);
+
+        glBindBuffer(GL_ARRAY_BUFFER, lineVerticesVBO);
+        glVertexPointer(3, GL_FLOAT, 3 * sizeof(GLfloat), 0);
+
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, lineIndicesVBO);
+        glDrawElements(GL_LINES, 3*4, GL_UNSIGNED_SHORT, 0);
+
+        glDisableClientState(GL_VERTEX_ARRAY);
+
+
         for (OpenNavWay* nway in [[_parser ways] objectEnumerator]) {
-            GLWay* way = [GLWay createFromWay:nway usingNodes:nodes];
+            GLWay* way = [GLWay createFromWay:nway usingNodes:myNodes];
             [way render];
 
         }
@@ -176,18 +196,29 @@
 
 }
 
+- (void)reshape
+{
+    NSLog(@"OpenNavOpenGLView::reshape");
+    NSRect rect = [self bounds];
+    rect.size = [self convertSize:rect.size toView:nil];
+    glViewport(0, 0, NSWidth(rect), NSHeight(rect));
+
+}
+
 - (void) update
 {
     NSLog(@"OpenNavOpenGLView::update");
+    [[self openGLContext] update];
     //glViewport(0, 0, width, height);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
     NSRect r = [self bounds];
+    r.size = [self convertSize:r.size toView:nil];
+
     NSLog(@"Update: height %f / w %f = %f ", r.size.height, r.size.width, (r.size.width) / (r.size.height));
-//	gluPerspective(30.0f, (r.size.height) / (r.size.width   ), 0.001f, 6500.0f);
-	gluPerspective(30.0f, (r.size.width) / (r.size.height), 0.001f, 6500.0f);
+	gluPerspective(65.0f, (NSWidth(r)) / (NSHeight(r)), 1.00f, 6500.0f);
+//	gluPerspective(10.0f, (r.size.width) / (r.size.height), 0.001f, 6500.0f);
 	glMatrixMode(GL_MODELVIEW);
-    
     [super update];
     NSLog(@"OpenNavOpenGLView::update--");
 
@@ -195,34 +226,18 @@
 
 - (void) setParser: (OpenNavOsmParser*) parser
 {
-    if (_parser != nil) {
-        glDeleteBuffers(1, &nodeVerticesVBO);
-        glDeleteBuffers(1, &way1IndicesVBO);
-    }
+//    if (_parser != nil) {
+//        glDeleteBuffers(1, &nodeVerticesVBO);
+//        glDeleteBuffers(1, &way1IndicesVBO);
+//    }
     _parser = parser;
     [self setNeedsDisplay:YES];
 
     NSDictionary* mjupp = [_parser nodes];
     //int x = [_parser nodes];
     nodeCorners = malloc([mjupp count] * sizeof(GLfloat));
-    for (NSNumber* key in mjupp) {
-        NSLog(@"Key %@", key);
-    }
-//    GLNodes* nodes = [[GLNodes alloc] initWithNodes:[_parser nodes]];
-//    GLWay* way = [[GLWay alloc] initWithWay:[_parser getWayByID: 67628281] usingNodes:nodes];
-//    GLfloat* node_vert_vbo = [nodes nodeVertices];
-//
-//    glGenBuffers(1, &nodeVerticesVBO);
-//	glBindBuffer(GL_ARRAY_BUFFER, nodeVerticesVBO);
-//	glBufferData(GL_ARRAY_BUFFER, [nodes bufferSize], node_vert_vbo, GL_STATIC_DRAW);
-//
-//    GLushort* way_ind_vbo = [way wayIndices];
-//    glGenBuffers(1, &way1IndicesVBO);
-//	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, way1IndicesVBO);
-//	glBufferData(GL_ELEMENT_ARRAY_BUFFER, [way bufferSize], way_ind_vbo, GL_STATIC_DRAW);
-//    way1Len = [way count];
-
-
+    NSRect mySize = NSMakeRect(11.65, 58.05, 0.10, 0.10);
+    myNodes = [[GLNodes alloc] initWithNodes:[_parser nodes] andBounds:mySize ];
 }
 
 - (id) init

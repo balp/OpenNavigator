@@ -24,7 +24,7 @@
 @property (readonly) size_t bufferSize;
 
 
-- (id) initWithNodes:(NSDictionary*)nodes;
+- (id) initWithNodes:(NSDictionary*)nodes andBounds:(NSRect)rect;
 - (NSUInteger)count;
 - (GLfloat)lonToLocal: (double)lon;
 - (GLfloat)latToLocal: (double)lat;

@@ -9,6 +9,7 @@
 #import "OpenNavOSMObject.h"
 
 @implementation OpenNavOSMObject
+@synthesize tags = _tags;
 
 - (id) init
 {

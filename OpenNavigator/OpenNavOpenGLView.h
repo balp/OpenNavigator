@@ -10,6 +10,7 @@
 
 #include <OpenGL/gl.h>
 @class OpenNavOsmParser;
+@class GLNodes;
 //#import "OpenNavOsmParser.h"
 
 
@@ -18,13 +19,15 @@
 @private
     GLuint verticesVBO;
     GLuint indicesVBO;
-    GLuint nodeVerticesVBO;
-    GLuint way1IndicesVBO;
-    GLuint way1Len;
+//    GLuint nodeVerticesVBO;
+//    GLuint way1IndicesVBO;
+//    GLuint way1Len;
+    GLuint lineVerticesVBO;
     GLuint lineIndicesVBO;
     Boolean started;
     OpenNavOsmParser* _parser;
     GLfloat* nodeCorners;
+    GLNodes* myNodes;
 }
 - (void) setParser: (OpenNavOsmParser*) parser;
 - (void) drawRect: (NSRect) bounds;

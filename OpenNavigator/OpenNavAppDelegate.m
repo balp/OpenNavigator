@@ -39,7 +39,8 @@
 
     NSMutableString* fileName = [NSMutableString stringWithString:currentpath];
     [fileName appendString:@"/OpenNavigatorTests/TestData.osm"];
-    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/code/python/test/OpenNavigator/OpenNavigatorTests/TestData.osm"];
+//    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/code/python/test/OpenNavigator/OpenNavigatorTests/TestData.osm"];
+    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/Documents/OpenStreetMap/orust_1.osm"];
     NSLog(@"OpenData: %@", fileName);
     _parser = [[OpenNavOsmParser alloc] init];
     [[self parser] parseOSMData:data];
