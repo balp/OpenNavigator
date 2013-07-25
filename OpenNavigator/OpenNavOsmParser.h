@@ -21,6 +21,8 @@
     OpenNavOSMObject* _curentObject;
     OpenNavWay* _currentWay;
 }
+@property (readonly,strong) NSDictionary* ways;
+@property (readonly,strong) NSDictionary* nodes;
 
 - (void) parseOSMData:(NSData*)data;
 - (OpenNavNode*) getNodeByID:(long)nodeid;

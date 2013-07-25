@@ -12,6 +12,9 @@
 
 @implementation OpenNavOsmParser
 
+@synthesize ways = _ways;
+@synthesize nodes = _nodes;
+
 - (id) init
 {
     if (self = [super init]) {
@@ -34,7 +37,7 @@
         [[NSScanner scannerWithString:[attributeDict valueForKey:@"lat"]] scanDouble:&lat];
         double lon;
         [[NSScanner scannerWithString:[attributeDict valueForKey:@"lon"]] scanDouble:&lon];
-        NSLog(@"Node: %d, @ %f, %f", idval, lat, lon);
+//        NSLog(@"Node: %d, @ %f, %f", idval, lat, lon);
         OpenNavNode* nd = [[OpenNavNode alloc] initNodeWithID: idval onLat: lat lon: lon];
         [_nodes setObject:nd forKey:[NSNumber numberWithInt:idval]];
         _currentNode = nd;

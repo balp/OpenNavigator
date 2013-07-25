@@ -77,5 +77,23 @@
     //STAssertEquals([nd lon], 21.1423890, @"Not the right longitude for node");
 }
 
+- (void)testOSMWays
+{
+    for(id key in [dut ways]) {
+//        NSLog(@"Key: %@", key);
+        OpenNavWay* way = [dut getWayByID:[key longValue]];
+        STAssertNotNil(way, @"Didnt find the way");
+        STAssertNotNil([way nodes], @"Have nodes.");
+    }
+}
+
+- (void)testOSMNodes
+{
+    for (id key in [dut nodes]) {
+//        NSLog(@"Key node: %@", key);
+        OpenNavNode* node = [dut getNodeByID:[key longValue]];
+        STAssertNotNil(node, @"Return a unkown ID");
+    }
+}
 
 @end

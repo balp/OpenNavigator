@@ -22,6 +22,9 @@
 		AA14538C15AB561E007E968D /* TestData.osm in Resources */ = {isa = PBXBuildFile; fileRef = AA14538B15AB561E007E968D /* TestData.osm */; };
 		AA14538F15AB56B0007E968D /* OpenNavOsmParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14538E15AB56B0007E968D /* OpenNavOsmParser.m */; };
 		AA14539215AB572A007E968D /* OpenNavOsmParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA14539115AB572A007E968D /* OpenNavOsmParserTests.m */; };
+		AA44700517A0638400F5FB61 /* GLNodes.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44700417A0638400F5FB61 /* GLNodes.m */; };
+		AA44700817A0673900F5FB61 /* GLNodesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44700717A0673900F5FB61 /* GLNodesTest.m */; };
+		AA44700B17A07D7D00F5FB61 /* GLWay.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44700A17A07D7D00F5FB61 /* GLWay.m */; };
 		AAB0BA5615AC16FE007BCA8C /* OpenNavNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB0BA5515AC16FE007BCA8C /* OpenNavNode.m */; };
 		AAC6E9B115AC4E0500457FFE /* OpenNavWay.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6E9B015AC4E0500457FFE /* OpenNavWay.m */; };
 		AAC6E9B515AC5B7200457FFE /* OpenNavOSMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6E9B415AC5B7200457FFE /* OpenNavOSMObject.m */; };
@@ -65,6 +68,12 @@
 		AA14538E15AB56B0007E968D /* OpenNavOsmParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenNavOsmParser.m; sourceTree = "<group>"; };
 		AA14539015AB572A007E968D /* OpenNavOsmParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenNavOsmParserTests.h; path = OpenNavigatorTests/OpenNavOsmParserTests.h; sourceTree = SOURCE_ROOT; };
 		AA14539115AB572A007E968D /* OpenNavOsmParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenNavOsmParserTests.m; path = OpenNavigatorTests/OpenNavOsmParserTests.m; sourceTree = SOURCE_ROOT; };
+		AA44700317A0638300F5FB61 /* GLNodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLNodes.h; sourceTree = "<group>"; };
+		AA44700417A0638400F5FB61 /* GLNodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNodes.m; sourceTree = "<group>"; };
+		AA44700617A0673900F5FB61 /* GLNodesTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLNodesTest.h; sourceTree = "<group>"; };
+		AA44700717A0673900F5FB61 /* GLNodesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNodesTest.m; sourceTree = "<group>"; };
+		AA44700917A07D7D00F5FB61 /* GLWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWay.h; sourceTree = "<group>"; };
+		AA44700A17A07D7D00F5FB61 /* GLWay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWay.m; sourceTree = "<group>"; };
 		AAB0BA5415AC16FE007BCA8C /* OpenNavNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNavNode.h; sourceTree = "<group>"; };
 		AAB0BA5515AC16FE007BCA8C /* OpenNavNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenNavNode.m; sourceTree = "<group>"; };
 		AAC6E9AF15AC4E0500457FFE /* OpenNavWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenNavWay.h; sourceTree = "<group>"; };
@@ -152,6 +161,10 @@
 				AAC6E9B015AC4E0500457FFE /* OpenNavWay.m */,
 				AAC6E9B315AC5B7200457FFE /* OpenNavOSMObject.h */,
 				AAC6E9B415AC5B7200457FFE /* OpenNavOSMObject.m */,
+				AA44700317A0638300F5FB61 /* GLNodes.h */,
+				AA44700417A0638400F5FB61 /* GLNodes.m */,
+				AA44700917A07D7D00F5FB61 /* GLWay.h */,
+				AA44700A17A07D7D00F5FB61 /* GLWay.m */,
 			);
 			path = OpenNavigator;
 			sourceTree = "<group>";
@@ -177,6 +190,8 @@
 				AA14536615AAD8D8007E968D /* OpenNavigatorTests.m */,
 				AA14536015AAD8D8007E968D /* Supporting Files */,
 				AA14538B15AB561E007E968D /* TestData.osm */,
+				AA44700617A0673900F5FB61 /* GLNodesTest.h */,
+				AA44700717A0673900F5FB61 /* GLNodesTest.m */,
 			);
 			path = OpenNavigatorTests;
 			sourceTree = "<group>";
@@ -235,7 +250,7 @@
 		AA14532F15AAD8D7007E968D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = AA14533215AAD8D7007E968D /* Build configuration list for PBXProject "OpenNavigator" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -305,6 +320,8 @@
 				AAB0BA5615AC16FE007BCA8C /* OpenNavNode.m in Sources */,
 				AAC6E9B115AC4E0500457FFE /* OpenNavWay.m in Sources */,
 				AAC6E9B515AC5B7200457FFE /* OpenNavOSMObject.m in Sources */,
+				AA44700517A0638400F5FB61 /* GLNodes.m in Sources */,
+				AA44700B17A07D7D00F5FB61 /* GLWay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +331,7 @@
 			files = (
 				AA14536715AAD8D8007E968D /* OpenNavigatorTests.m in Sources */,
 				AA14539215AB572A007E968D /* OpenNavOsmParserTests.m in Sources */,
+				AA44700817A0673900F5FB61 /* GLNodesTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +387,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -383,6 +405,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -396,6 +419,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -404,6 +431,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
@@ -413,6 +441,7 @@
 		AA14536B15AAD8D8007E968D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenNavigator/OpenNavigator-Prefix.pch";
 				INFOPLIST_FILE = "OpenNavigator/OpenNavigator-Info.plist";
@@ -424,6 +453,7 @@
 		AA14536C15AAD8D8007E968D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenNavigator/OpenNavigator-Prefix.pch";
 				INFOPLIST_FILE = "OpenNavigator/OpenNavigator-Info.plist";
@@ -436,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OpenNavigator.app/Contents/MacOS/OpenNavigator";
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenNavigator/OpenNavigator-Prefix.pch";
@@ -450,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OpenNavigator.app/Contents/MacOS/OpenNavigator";
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenNavigator/OpenNavigator-Prefix.pch";

@@ -8,10 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 @class OpenNavOpenGLView;
+@class OpenNavOsmParser;
 
 @interface OpenNavAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet OpenNavOpenGLView *oglview;
+@property (readonly, strong) OpenNavOsmParser* parser;
 
 @end

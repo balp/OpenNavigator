@@ -9,15 +9,24 @@
 #import <AppKit/AppKit.h>
 
 #include <OpenGL/gl.h>
+@class OpenNavOsmParser;
+//#import "OpenNavOsmParser.h"
 
 
-@interface OpenNavOpenGLView : NSOpenGLView
+@interface OpenNavOpenGLView : NSOpenGLView<NSWindowDelegate>
 {
 @private
     GLuint verticesVBO;
     GLuint indicesVBO;
+    GLuint nodeVerticesVBO;
+    GLuint way1IndicesVBO;
+    GLuint way1Len;
+    GLuint lineIndicesVBO;
     Boolean started;
+    OpenNavOsmParser* _parser;
+    GLfloat* nodeCorners;
 }
+- (void) setParser: (OpenNavOsmParser*) parser;
 - (void) drawRect: (NSRect) bounds;
 - (void) setUp;
 - (void) update;
