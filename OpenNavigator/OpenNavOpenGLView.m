@@ -103,6 +103,7 @@
 	//glDisable(GL_CULL_FACE);
 //	glEnable(GL_DEPTH_TEST);
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    _glways = [[NSMutableArray alloc] init];
     NSLog(@"OpenNavOpenGLView::initialize--");
 
 }
@@ -169,7 +170,7 @@
         angle += (1/60.0);
         glLoadIdentity();
         glTranslatef(-0.0f, -0.0f, -15.75f);
-        glRotatef(-20 + sin(angle)*20, 1.0f, 0.0f, 0.0f);
+        glRotatef(-30 + sin(angle)*30, 1.0f, 0.0f, 0.0f);
 
 
         glColor4f(0.7f, 0.7f, 0.7f, 1.0f);
@@ -183,13 +184,9 @@
 
         glDisableClientState(GL_VERTEX_ARRAY);
 
-
-        for (OpenNavWay* nway in [[_parser ways] objectEnumerator]) {
-            GLWay* way = [GLWay createFromWay:nway usingNodes:myNodes];
+        for (GLWay* way in [_glways objectEnumerator]) {
             [way render];
-
         }
-
     } else {
         [self render:(1/60.0)];
     }
@@ -243,6 +240,13 @@
     //int x = [_parser nodes];
     nodeCorners = malloc([mjupp count] * sizeof(GLdouble));
     myNodes = [[GLNodes alloc] initWithNodes:[_parser nodes] andBounds:_viewRect ];
+
+    for (OpenNavWay* nway in [[_parser ways] objectEnumerator]) {
+        GLWay* way = [GLWay createFromWay:nway usingNodes:myNodes];
+        [_glways addObject:way];
+
+    }
+
 }
 - (id) init
 {
@@ -256,19 +260,14 @@
 static NSTimer *timer = nil;
 //
 - (void)windowDidResignMain:(NSNotification *)notification {
-        NSLog(@"OpenNavOpenGLView::windowDidResignMain");
+    NSLog(@"OpenNavOpenGLView::windowDidResignMain");
     [timer invalidate];
-//
-//    //game_deactivate();      // freeze, pause
+
     [self setNeedsDisplay:YES];
 }
-//
+
 - (void)windowDidBecomeMain:(NSNotification *)notification {
-        NSLog(@"OpenNavOpenGLView::windowDidBecomeMain");
-//
-//    //game_activate();
-//    [self setNeedsDisplay:YES];
-//
+    NSLog(@"OpenNavOpenGLView::windowDidBecomeMain");
     timer = [NSTimer timerWithTimeInterval:(1/10)
                                     target:self
                                   selector:@selector(timerEvent:)
@@ -278,10 +277,9 @@ static NSTimer *timer = nil;
     NSLog(@"Got timer %@", timer);
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
-//
+
 - (void)timerEvent:(NSTimer *)t {
     NSLog(@"timerEvent()");
-    //run_game();
     [self setNeedsDisplay:YES];
 }
 

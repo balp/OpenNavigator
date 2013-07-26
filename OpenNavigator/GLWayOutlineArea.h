@@ -20,6 +20,8 @@
     NSUInteger _count;
     GLfloat _width;
     NSColor* _color;
+    GLuint _indicesVBO;
+    GLuint _verticesVBO;
 }
 @property NSColor* color;
 @property GLfloat width;

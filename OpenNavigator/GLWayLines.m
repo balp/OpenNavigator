@@ -45,7 +45,6 @@
 -(void)initHelper:(GLNodes*)nodes
 {
     _bufferSize = [[_navway nodes] count] * sizeof(GLushort) * 2;
-    _wayIndices = malloc(_bufferSize);
     _wayShortIndices = malloc(_bufferSize);
     _wayNodes = malloc([[_navway nodes] count] * sizeof(GLdouble) * 3);
     int cnt = 0;
@@ -54,10 +53,6 @@
     GLdouble* nodeVertices = [nodes nodeVertices];
     for (NSNumber* node in [_navway nodes]) {
         currentIndex = [nodes indexOfNodeWithId:node];
-        if (cnt > 0) {
-            _wayIndices[(cnt-1)*2 + 0] = prevIndex;
-            _wayIndices[(cnt-1)*2 + 1] = currentIndex;
-        }
         _wayNodes[cnt * 3 + 0] = nodeVertices[currentIndex*3+0];
         _wayNodes[cnt * 3 + 1] = nodeVertices[currentIndex*3+1];
         _wayNodes[cnt * 3 + 2] = nodeVertices[currentIndex*3+2];
@@ -70,6 +65,14 @@
         ++cnt;
     }
     _count = cnt;
+
+    glGenBuffers(1, &_nodeVerticesVBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _nodeVerticesVBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, _count * 3 * sizeof(GLdouble), _wayNodes, GL_STATIC_DRAW);
+
+    glGenBuffers(1, &_wayIndicesVBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _wayIndicesVBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, (_count-1) * 2 * sizeof(GLushort), _wayShortIndices, GL_STATIC_DRAW);
 
 }
 
@@ -84,28 +87,16 @@
 {
     glEnableClientState(GL_VERTEX_ARRAY);
 
-    GLdouble* tmp_nodes = _wayNodes;
-    GLuint nodeVerticesVBO;
-    glGenBuffers(1, &nodeVerticesVBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, nodeVerticesVBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, _count * 3 * sizeof(GLdouble), tmp_nodes, GL_STATIC_DRAW);
 
 
-    glBindBuffer(GL_ARRAY_BUFFER, nodeVerticesVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, _nodeVerticesVBO);
     glVertexPointer(3, GL_DOUBLE, 3 * sizeof(GLdouble), 0);
 
-    GLuint way1IndicesVBO;
-    GLushort* tmp_indices = _wayShortIndices;
-    glGenBuffers(1, &way1IndicesVBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, way1IndicesVBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, (_count-1) * 2 * sizeof(GLushort), tmp_indices, GL_STATIC_DRAW);
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, way1IndicesVBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _wayIndicesVBO);
     glDrawElements(GL_LINES, 2*(_count-1), GL_UNSIGNED_SHORT, 0);
     glDisableClientState(GL_VERTEX_ARRAY);
-    glDeleteBuffers(1, &way1IndicesVBO);
-    glDeleteBuffers(1, &nodeVerticesVBO);
-    
+
     
 }
 
@@ -119,9 +110,12 @@
 -(void) finalize
 {
     // Free stuff
-    free(_wayIndices);
     free(_wayShortIndices);
     free(_wayNodes);
+
+    glDeleteBuffers(1, &_wayIndicesVBO);
+    glDeleteBuffers(1, &_nodeVerticesVBO);
+
 }
 
 

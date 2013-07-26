@@ -13,13 +13,16 @@
 @protected
     NSDictionary* _nodes;
     NSMutableDictionary* _indexes;
-    GLushort* _wayIndices;
     GLushort* _wayShortIndices;
     GLdouble* _wayNodes;
     size_t _bufferSize;
     NSUInteger _count;
     GLfloat _width;
     NSColor* _color;
+    GLuint _nodeVerticesVBO;
+    GLuint _wayIndicesVBO;
+
+
 }
 @property NSColor* color;
 @property GLfloat width;

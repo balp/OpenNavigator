@@ -26,6 +26,7 @@
     GLdouble* nodeCorners;
     GLNodes* myNodes;
     NSRect _viewRect;
+    NSMutableArray* _glways;
 }
 @property NSRect viewRect;
 
