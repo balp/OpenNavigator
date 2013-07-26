@@ -15,7 +15,7 @@
     NSMutableDictionary* _indexes;
     GLushort* _wayIndices;
     GLushort* _wayShortIndices;
-    GLfloat* _wayNodes;
+    GLdouble* _wayNodes;
     size_t _bufferSize;
     NSUInteger _count;
 //    OpenNavWay* _navway;

@@ -58,6 +58,7 @@
         }
     } else if ([way haveTag:@"landuse"]) {
         if ([[way tagValue:@"landuse"] isEqualToString:@"residential"]) {
+//            return [[GLWay alloc] initWithWay:way usingNodes:nodes];
             return [[GLWayLanduse alloc] initWithWay:way usingNodes:nodes];
         }
     }

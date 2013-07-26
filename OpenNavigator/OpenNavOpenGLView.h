@@ -23,7 +23,7 @@
     GLuint lineIndicesVBO;
     Boolean started;
     OpenNavOsmParser* _parser;
-    GLfloat* nodeCorners;
+    GLdouble* nodeCorners;
     GLNodes* myNodes;
     NSRect _viewRect;
 }

@@ -32,7 +32,7 @@
     NSLog(@"OpenNavOpenGLView::initialize");
     started = true;
     
-	static const GLfloat corners[] = {
+	static const GLdouble corners[] = {
         1,1,1,   // 0
         -1,-1,1, // 1
         1,-1,1,  // 2
@@ -76,7 +76,7 @@
     glGenBuffers(1, &indicesVBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesVBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cube), cube, GL_STATIC_DRAW);
-	static const GLfloat linecorners[] = {
+	static const GLdouble linecorners[] = {
         10,10,0,   // 0
         -10,10,0, // 1
         -10,-10,0,  // 2
@@ -97,10 +97,10 @@
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, lineIndicesVBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(lines), lines, GL_STATIC_DRAW);
 
-    glEnable(GL_CULL_FACE);
-	glCullFace(GL_BACK);
+//    glEnable(GL_CULL_FACE);
+//	glCullFace(GL_BACK);
 	//glDisable(GL_CULL_FACE);
-	glEnable(GL_DEPTH_TEST);
+//	glEnable(GL_DEPTH_TEST);
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     NSLog(@"OpenNavOpenGLView::initialize--");
 
@@ -131,7 +131,7 @@
         glEnableClientState(GL_VERTEX_ARRAY);
         
         glBindBuffer(GL_ARRAY_BUFFER, verticesVBO);
-        glVertexPointer(3, GL_FLOAT, 3 * sizeof(GLfloat), 0);
+        glVertexPointer(3, GL_DOUBLE, 3 * sizeof(GLdouble), 0);
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesVBO);
         glDrawElements(GL_TRIANGLES, 3*12, GL_UNSIGNED_SHORT, 0);
@@ -163,15 +163,17 @@
     if(_parser != nil) { // We have a parser, lets draw all ways as a start.
     
         static GLfloat angle = 0.0f;
-        angle += 60.0f * (1/60.0);
+        angle += (1/60.0);
         glLoadIdentity();
         glTranslatef(-0.0f, -0.0f, -15.75f);
+        glRotatef(-20 + sin(angle)*20, 1.0f, 0.0f, 0.0f);
+
 
         glColor4f(0.7f, 0.7f, 0.7f, 1.0f);
         glEnableClientState(GL_VERTEX_ARRAY);
 
         glBindBuffer(GL_ARRAY_BUFFER, lineVerticesVBO);
-        glVertexPointer(3, GL_FLOAT, 3 * sizeof(GLfloat), 0);
+        glVertexPointer(3, GL_DOUBLE, 3 * sizeof(GLdouble), 0);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, lineIndicesVBO);
         glDrawElements(GL_LINES, 3*4, GL_UNSIGNED_SHORT, 0);
@@ -232,7 +234,7 @@
 
     NSDictionary* mjupp = [_parser nodes];
     //int x = [_parser nodes];
-    nodeCorners = malloc([mjupp count] * sizeof(GLfloat));
+    nodeCorners = malloc([mjupp count] * sizeof(GLdouble));
     myNodes = [[GLNodes alloc] initWithNodes:[_parser nodes] andBounds:_viewRect ];
 }
 - (id) init
@@ -260,7 +262,7 @@ static NSTimer *timer = nil;
 //    //game_activate();
 //    [self setNeedsDisplay:YES];
 //
-    timer = [NSTimer timerWithTimeInterval:10
+    timer = [NSTimer timerWithTimeInterval:(1/10)
                                     target:self
                                   selector:@selector(timerEvent:)
                                   userInfo:nil

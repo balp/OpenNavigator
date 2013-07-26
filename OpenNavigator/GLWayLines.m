@@ -30,11 +30,11 @@
         _bufferSize = [[way nodes] count] * sizeof(GLushort) * 2;
         _wayIndices = malloc(_bufferSize);
         _wayShortIndices = malloc(_bufferSize);
-        _wayNodes = malloc([[way nodes] count] * sizeof(GLfloat) * 3);
+        _wayNodes = malloc([[way nodes] count] * sizeof(GLdouble) * 3);
         int cnt = 0;
         GLushort prevIndex = 0;
         GLushort currentIndex = 0;
-        GLfloat* nodeVertices = [nodes nodeVertices];
+        GLdouble* nodeVertices = [nodes nodeVertices];
         for (NSNumber* node in [way nodes]) {
             currentIndex = [nodes indexOfNodeWithId:node];
             if (cnt > 0) {
@@ -68,15 +68,15 @@
 {
     glEnableClientState(GL_VERTEX_ARRAY);
 
-    GLfloat* tmp_nodes = _wayNodes;
+    GLdouble* tmp_nodes = _wayNodes;
     GLuint nodeVerticesVBO;
     glGenBuffers(1, &nodeVerticesVBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, nodeVerticesVBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, _count * 3 * sizeof(GLfloat), tmp_nodes, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, _count * 3 * sizeof(GLdouble), tmp_nodes, GL_STATIC_DRAW);
 
 
     glBindBuffer(GL_ARRAY_BUFFER, nodeVerticesVBO);
-    glVertexPointer(3, GL_FLOAT, 3 * sizeof(GLfloat), 0);
+    glVertexPointer(3, GL_DOUBLE, 3 * sizeof(GLdouble), 0);
 
     GLuint way1IndicesVBO;
     GLushort* tmp_indices = _wayShortIndices;

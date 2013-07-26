@@ -25,7 +25,7 @@
     if (self = [super init]) {
         _nodes = nodes;
         _indexes = [[NSMutableDictionary alloc] initWithCapacity:[nodes count]];
-        _bufferSize = [nodes count] * sizeof(GLfloat) * 3;
+        _bufferSize = [nodes count] * sizeof(GLdouble) * 3;
         _nodeVertices = malloc(_bufferSize);
         min_lat = NSMinX(rect);
         max_lat = NSMaxX(rect);
@@ -56,6 +56,7 @@
             _nodeVertices[cnt * 3 + 1] = [self latToLocal:[node lat]]; // Lat
             _nodeVertices[cnt * 3 + 2] = 0.0; // Height
             [_indexes setObject:[NSNumber numberWithInt:cnt] forKey:nodeID];
+            NSLog(@"node %d (%lf, %lf, %lf)", cnt, _nodeVertices[cnt * 3 + 0], _nodeVertices[cnt * 3 + 0], _nodeVertices[cnt * 3 + 0]);
             ++cnt;
         }
 
@@ -73,15 +74,15 @@
     return [_indexes count];
 }
 
-- (GLfloat)lonToLocal: (double)lon
+- (GLdouble)lonToLocal: (double)lon
 {
-    GLfloat ret_val = -10 + ((lon - min_lon) / (max_lon-min_lon))*20.0;
+    GLdouble ret_val = -10 + ((lon - min_lon) / (max_lon-min_lon))*20.0;
 //    NSLog(@"lonToLocal: %f = %f %f %f == %f == %f", lon, min_lon, max_lon, max_lon-min_lon, (lon - min_lon) / (max_lon-min_lon), ret_val);
     return ret_val;
 }
-- (GLfloat)latToLocal: (double)lat
+- (GLdouble)latToLocal: (double)lat
 {
-    GLfloat ret_val = -10+((lat - min_lat)/(max_lat-min_lat)) * 20.0;
+    GLdouble ret_val = -10+((lat - min_lat)/(max_lat-min_lat)) * 20.0;
 //    NSLog(@"latToLocal: %f = %f %f %f == %f == %f", lat, min_lat, max_lat, max_lat-min_lat, (lat - min_lat) / (max_lat-min_lat), ret_val);
     return ret_val;
 }
