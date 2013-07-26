@@ -32,7 +32,10 @@
         _nodes = nodes;
         _color = color;
         
-        // Tesselation should be done and saved here.
+        listIndex = glGenLists(1);
+        glNewList(listIndex, GL_COMPILE);
+        [self tesselateArea];
+        glEndList();
     }
     return self;
 }
@@ -42,7 +45,11 @@
         _nodes = nodes;
         _color = [NSColor colorWithCalibratedRed:1.0f green:0.0f blue:0.0f alpha:1.0f];
 
-        // Tesselation should be done and saved here.
+        listIndex = glGenLists(1);
+        glNewList(listIndex, GL_COMPILE);
+        [self tesselateArea];
+        glEndList();
+
     }
     return self;
 }
@@ -50,7 +57,7 @@
 
 -(void) finalize
 {
-
+    glDeleteLists(listIndex, 1);
 }
 
 
@@ -60,25 +67,28 @@
     [self renderArea];
 }
 
+- (void) renderArea
+{
+    glCallList(listIndex);
+}
+
 - (void) setAreaProperties
 {
     glColor4f([_color redComponent], [_color greenComponent], [_color blueComponent ], [_color alphaComponent]);
 }
+
 static void beginCallback(GLenum mode)
 {
-//    NSLog(@"beginCallback(%d)", mode);
     glBegin(mode);
 
 }
 static void endCallback()
 {
-//    NSLog(@"endCallback");
     glEnd();
 }
+
 static void vertexCallback(GLvoid *vertex)
 {
-//    const GLdouble* ptr = vertex;
-//    NSLog(@"vertexCallback() (%lf,%lf,%lf)", ptr[0], ptr[1], ptr[2]);
     glVertex3dv(vertex);
 }
 
@@ -111,7 +121,7 @@ static void myCombine( GLdouble coords[3],
     *dataOut = vertex;
 }
 
-- (void) renderArea
+- (void) tesselateArea
 {
 #if 1
     GLdouble* nodeVertices = [_nodes nodeVertices];

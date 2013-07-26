@@ -13,11 +13,13 @@
 @protected
     GLNodes* _nodes;
     NSColor* _color;
+    GLuint listIndex;
 }
 @property NSColor* color;
 
 - (id) initWithWay:(OpenNavWay *)way usingNodes:(GLNodes *)nodes andColor: (NSColor*)color;
 - (void) setAreaProperties;
 - (void) renderArea;
+- (void) tesselateArea;
 
 @end
