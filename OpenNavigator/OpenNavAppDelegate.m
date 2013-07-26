@@ -42,12 +42,12 @@
 
     // Test data, Södra Skatan, Usrviken, Skellefteå
 
-    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/code/python/test/OpenNavigator/OpenNavigatorTests/TestData.osm"];
-    NSRect viewRect = NSMakeRect(64.723, 21.21, 0.02, 0.02);
+//    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/code/python/test/OpenNavigator/OpenNavigatorTests/TestData.osm"];
+//    NSRect viewRect = NSMakeRect(64.723, 21.21, 0.02, 0.02);
 
 // Test data, Skåpesund, between Orust and Tjörn
-//    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/Documents/OpenStreetMap/orust_1.osm"];
-//    NSRect viewRect = NSMakeRect(58.05, 11.65, 0.10, 0.10);
+    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/Documents/OpenStreetMap/orust_1.osm"];
+    NSRect viewRect = NSMakeRect(58.05, 11.65, 0.08, 0.08);
 
 
     _parser = [[OpenNavOsmParser alloc] init];

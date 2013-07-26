@@ -10,9 +10,12 @@
 
 @implementation GLWayWetland
 
-- (void) setAreaProperties
+- (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes
 {
-    glColor4f(0.2f, 0.5f, .2f, 0.5f);
+    if (self = [super initWithWay:way usingNodes:nodes andColor:[NSColor colorWithCalibratedRed:0.2f green:0.5f blue:0.2f alpha:0.5f]]) {
+    }
+    return self;
 }
+
 
 @end

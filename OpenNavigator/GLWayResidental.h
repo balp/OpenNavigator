@@ -6,8 +6,8 @@
 //
 //
 
-#import "GLWayArea.h"
+#import "GLWayFilledArea.h"
 
-@interface GLWayLanduse : GLWayArea
+@interface GLWayResidental : GLWayFilledArea
 
 @end

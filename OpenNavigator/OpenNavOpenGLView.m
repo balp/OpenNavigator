@@ -17,6 +17,7 @@
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
 
+#include <sys/time.h>
 
 @interface OpenNavOpenGLView (hidden)
 -(void) initialize;
@@ -154,12 +155,14 @@
 }
 -(void) drawRect: (NSRect) bounds
 {
-    NSLog(@"OpenNavOpenGLView::drawRect");
+    struct timeval start_time, end_time;
+    gettimeofday(&start_time, NULL);
+//    NSLog(@"OpenNavOpenGLView::drawRect");
     glClearColor(0, 0, 0, 0);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    
-    NSLog(@"drawRect:...");
+
+//    NSLog(@"drawRect:...");
     if(_parser != nil) { // We have a parser, lets draw all ways as a start.
     
         static GLfloat angle = 0.0f;
@@ -193,6 +196,10 @@
     //finalize();
     glFlush();
 
+    gettimeofday(&end_time, NULL);
+    double elapsed = (end_time.tv_sec - start_time.tv_sec)*1000;
+    elapsed += (end_time.tv_usec-start_time.tv_usec)/1000;
+    NSLog(@"RenderTime: %.0lf ms.", elapsed);
 }
 
 - (void)reshape

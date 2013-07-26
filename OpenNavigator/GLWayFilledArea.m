@@ -6,7 +6,7 @@
 //
 //
 
-#import "GLWayArea.h"
+#import "GLWayFilledArea.h"
 #import "GLWay.h"
 #import "GLWayHighway.h"
 #import "GLWayCoastline.h"
@@ -19,51 +19,38 @@
 #include <GLUT/GLUT.h>
 
 
-@interface GLWayArea (hidden)
+@interface GLWayFilledArea (hidden)
 -(void) finalize;
 @end
 
-@implementation GLWayArea
+@implementation GLWayFilledArea
+@synthesize color = _color;
 
+- (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes andColor:(NSColor *)color
+{
+    if (self = [super initWithWay:way usingNodes:nodes]) {
+        _nodes = nodes;
+        _color = color;
+        
+        // Tesselation should be done and saved here.
+    }
+    return self;
+}
 - (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes
 {
     if (self = [super initWithWay:way usingNodes:nodes]) {
         _nodes = nodes;
-//        _bufferSize = [[way nodes] count] * sizeof(GLushort) * 2;
-//        _wayIndices = malloc(_bufferSize);
-//        _wayShortIndices = malloc(_bufferSize);
-//        _wayNodes = malloc([[way nodes] count] * sizeof(GLfloat) * 3);
-//        int cnt = 0;
-//        GLushort prevIndex = 0;
-//        GLushort currentIndex = 0;
-//            
-//            if (cnt > 0) {
-//                _wayIndices[(cnt-1)*2 + 0] = prevIndex;
-//                _wayIndices[(cnt-1)*2 + 1] = currentIndex;
-//            }
-//            _wayNodes[cnt * 3 + 0] = nodeVertices[currentIndex*3+0];
-//            _wayNodes[cnt * 3 + 1] = nodeVertices[currentIndex*3+1];
-//            _wayNodes[cnt * 3 + 2] = nodeVertices[currentIndex*3+2]-0.01;
+        _color = [NSColor colorWithCalibratedRed:1.0f green:0.0f blue:0.0f alpha:1.0f];
 
-//            _wayShortIndices[cnt]= cnt;
-
-
-//            prevIndex = currentIndex;
-//            ++cnt;
-//        GLUtesselator* tobj = gluNewTess();
-//        gluTessCallback(tobj, GLU_TESS_VERTEX, <#GLvoid (*CallBackFunc)()#>)
-//        
-//        _count = cnt;
+        // Tesselation should be done and saved here.
     }
     return self;
 }
 
+
 -(void) finalize
 {
-    // Free stuff
-//    free(_wayIndices);
-//    free(_wayShortIndices);
-//    free(_wayNodes);
+
 }
 
 
@@ -75,25 +62,23 @@
 
 - (void) setAreaProperties
 {
-    glColor4f(0.8f, 0.5f, .2f, 0.5f);
-    glLineWidth(1.5);
-
+    glColor4f([_color redComponent], [_color greenComponent], [_color blueComponent ], [_color alphaComponent]);
 }
 static void beginCallback(GLenum mode)
 {
-    NSLog(@"beginCallback(%d)", mode);
+//    NSLog(@"beginCallback(%d)", mode);
     glBegin(mode);
 
 }
 static void endCallback()
 {
-    NSLog(@"endCallback");
+//    NSLog(@"endCallback");
     glEnd();
 }
 static void vertexCallback(GLvoid *vertex)
 {
-    const GLdouble* ptr = vertex;
-    NSLog(@"vertexCallback() (%lf,%lf,%lf)", ptr[0], ptr[1], ptr[2]);
+//    const GLdouble* ptr = vertex;
+//    NSLog(@"vertexCallback() (%lf,%lf,%lf)", ptr[0], ptr[1], ptr[2]);
     glVertex3dv(vertex);
 }
 
@@ -103,18 +88,18 @@ static void myCombine( GLdouble coords[3],
                       GLdouble **dataOut )
 {
     GLdouble *vertex = malloc(6 * sizeof(GLdouble));
-    NSLog(@"myCombine()  (%lf, %lf, %lf)",
-          vertex[0],
-          vertex[1],
-          vertex[2]);
+//    NSLog(@"myCombine()  (%lf, %lf, %lf)",
+//          coords[0],
+//          coords[1],
+//          coords[2]);
 
     vertex[0] = coords[0];
     vertex[1] = coords[1];
     vertex[2] = coords[2];
-    NSLog(@"weight[0] %f", weight[0]);
-    NSLog(@"weight[1] %f", weight[1]);
-    NSLog(@"weight[2] %f", weight[2]);
-    NSLog(@"weight[3] %f", weight[3]);
+//    NSLog(@"weight[0] %f", weight[0]);
+//    NSLog(@"weight[1] %f", weight[1]);
+//    NSLog(@"weight[2] %f", weight[2]);
+//    NSLog(@"weight[3] %f", weight[3]);
 //    for(int i=3 ; i < 7; i++)
 //    {
 //        GLdouble a = weight[0] * vertex_data[0][i];
@@ -145,10 +130,10 @@ static void myCombine( GLdouble coords[3],
     gluTessBeginContour(tobj);
     for (NSNumber* node in [_navway nodes]) {
         GLushort currentIndex = [_nodes indexOfNodeWithId:node];
-        NSLog(@"gluTessVertex() %d  (%lf, %lf, %lf)", currentIndex, 
-              nodeVertices[currentIndex*3+0],
-              nodeVertices[currentIndex*3+1],
-              nodeVertices[currentIndex*3+2]);
+//        NSLog(@"gluTessVertex() %d  (%lf, %lf, %lf)", currentIndex, 
+//              nodeVertices[currentIndex*3+0],
+//              nodeVertices[currentIndex*3+1],
+//              nodeVertices[currentIndex*3+2]);
         gluTessVertex(tobj, &(nodeVertices[currentIndex*3]),
                       &(nodeVertices[currentIndex*3]));
     }

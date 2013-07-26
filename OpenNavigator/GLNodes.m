@@ -56,7 +56,7 @@
             _nodeVertices[cnt * 3 + 1] = [self latToLocal:[node lat]]; // Lat
             _nodeVertices[cnt * 3 + 2] = 0.0; // Height
             [_indexes setObject:[NSNumber numberWithInt:cnt] forKey:nodeID];
-            NSLog(@"node %d (%lf, %lf, %lf)", cnt, _nodeVertices[cnt * 3 + 0], _nodeVertices[cnt * 3 + 0], _nodeVertices[cnt * 3 + 0]);
+//            NSLog(@"node %d (%lf, %lf, %lf)", cnt, _nodeVertices[cnt * 3 + 0], _nodeVertices[cnt * 3 + 1], _nodeVertices[cnt * 3 + 2]);
             ++cnt;
         }
 

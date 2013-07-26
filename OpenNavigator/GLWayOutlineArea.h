@@ -1,14 +1,14 @@
 //
-//  GLWayLines.h
+//  GLWayOutlineArea.h
 //  OpenNavigator
 //
-//  Created by Anders Arnholm on 2013-07-25.
+//  Created by Anders Arnholm on 2013-07-26.
 //
 //
 
 #import "GLWay.h"
 
-@interface GLWayLines : GLWay
+@interface GLWayOutlineArea : GLWay
 {
 @protected
     NSDictionary* _nodes;

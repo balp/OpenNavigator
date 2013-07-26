@@ -28,6 +28,10 @@
         glColor4f(0.7f, 0.2f, 0.2f, 1.0f);
         glLineWidth(2.0);
         glLineStipple(3, 0x000f);
+    } else if ([waytype isEqualToString:@"living_street"]) {
+        glColor4f(0.7f, 0.2f, 0.2f, 1.0f);
+        glLineWidth(2.0);
+        glLineStipple(3, 0x000f);
     } else if ([waytype isEqualToString:@"unclassified"]) {
         glColor4f(0.9f, 0.5f, 0.3f, 1.0f);
         glLineWidth(1.0);
@@ -37,6 +41,22 @@
         glLineWidth(1.0);
         glLineStipple(3, 0x000f);
     } else if ([waytype isEqualToString:@"footway"]) {
+        glColor4f(0.9f, 0.4f, 0.30f, 1.0f);
+        glLineWidth(1.0);
+        glLineStipple(3, 0x000f);
+    } else if ([waytype isEqualToString:@"cycleway"]) {
+        glColor4f(0.5f, 0.7f, 0.7f, 1.0f);
+        glLineWidth(1.0);
+        glLineStipple(3, 0x000f);
+    } else if ([waytype isEqualToString:@"pedestrian"]) {
+        glColor4f(0.9f, 0.4f, 0.30f, 1.0f);
+        glLineWidth(1.0);
+        glLineStipple(3, 0x000f);
+    } else if ([waytype isEqualToString:@"service"]) {
+        glColor4f(0.9f, 0.4f, 0.30f, 1.0f);
+        glLineWidth(1.0);
+        glLineStipple(3, 0x000f);
+    } else if ([waytype isEqualToString:@"track"]) {
         glColor4f(0.9f, 0.4f, 0.30f, 1.0f);
         glLineWidth(1.0);
         glLineStipple(3, 0x000f);
