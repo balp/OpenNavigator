@@ -56,10 +56,10 @@
         if ([[way tagValue:@"man_made"] isEqualToString:@"pier"]) {
             return [[GLWayPier alloc] initWithWay:way usingNodes:nodes];
         }
-//    } else if ([way haveTag:@"landuse"]) {
-//        if ([[way tagValue:@"landuse"] isEqualToString:@"residential"]) {
-//            return [[GLWayLanduse alloc] initWithWay:way usingNodes:nodes];
-//        }
+    } else if ([way haveTag:@"landuse"]) {
+        if ([[way tagValue:@"landuse"] isEqualToString:@"residential"]) {
+            return [[GLWayLanduse alloc] initWithWay:way usingNodes:nodes];
+        }
     }
     return [[GLWay alloc] initWithWay:way usingNodes:nodes];
 }

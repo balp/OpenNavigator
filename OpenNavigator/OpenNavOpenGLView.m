@@ -27,10 +27,6 @@
  
 @implementation OpenNavOpenGLView (hidden)
 
-
-//GLuint verticesVBO;
-//GLuint indicesVBO;
-
 -(void) initialize
 {
     NSLog(@"OpenNavOpenGLView::initialize");
@@ -146,6 +142,7 @@
 @end
 
 @implementation OpenNavOpenGLView
+@synthesize viewRect = _viewRect;
 
 
 - (void) setUp
@@ -236,10 +233,8 @@
     NSDictionary* mjupp = [_parser nodes];
     //int x = [_parser nodes];
     nodeCorners = malloc([mjupp count] * sizeof(GLfloat));
-    NSRect mySize = NSMakeRect(11.65, 58.05, 0.10, 0.10);
-    myNodes = [[GLNodes alloc] initWithNodes:[_parser nodes] andBounds:mySize ];
+    myNodes = [[GLNodes alloc] initWithNodes:[_parser nodes] andBounds:_viewRect ];
 }
-
 - (id) init
 {
     if (self = [super init]) {

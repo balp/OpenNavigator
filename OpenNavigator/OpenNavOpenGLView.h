@@ -19,16 +19,17 @@
 @private
     GLuint verticesVBO;
     GLuint indicesVBO;
-//    GLuint nodeVerticesVBO;
-//    GLuint way1IndicesVBO;
-//    GLuint way1Len;
     GLuint lineVerticesVBO;
     GLuint lineIndicesVBO;
     Boolean started;
     OpenNavOsmParser* _parser;
     GLfloat* nodeCorners;
     GLNodes* myNodes;
+    NSRect _viewRect;
 }
+@property NSRect viewRect;
+
+- (void) setViewRect: (NSRect) area;
 - (void) setParser: (OpenNavOsmParser*) parser;
 - (void) drawRect: (NSRect) bounds;
 - (void) setUp;

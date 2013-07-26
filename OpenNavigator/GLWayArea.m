@@ -46,13 +46,7 @@
             _wayNodes[cnt * 3 + 1] = nodeVertices[currentIndex*3+1];
             _wayNodes[cnt * 3 + 2] = nodeVertices[currentIndex*3+2]-0.01;
 
-            if(cnt== 0) {
-                _wayShortIndices[0]= 0;
-            } else if(cnt % 2) {
-                _wayShortIndices[cnt]= (cnt/2)+1;
-            } else {
-                _wayShortIndices[cnt] = [[way nodes] count]-(cnt/2);
-            }
+            _wayShortIndices[cnt]= cnt;
 
 
             prevIndex = currentIndex;
@@ -85,6 +79,9 @@
 {
     glEnableClientState(GL_VERTEX_ARRAY);
 
+
+
+    
     GLfloat* tmp_nodes = _wayNodes;
     GLuint nodeVerticesVBO;
     glGenBuffers(1, &nodeVerticesVBO);
@@ -97,12 +94,12 @@
 
     GLuint way1IndicesVBO;
     GLushort* tmp_indices = _wayShortIndices;
-    for (int i = 0; i < _count; ++i) {
-        NSLog(@"_waySortIndices[%d] = %d ( %f, %f, %f)", i,
-              _wayShortIndices[i],
-              _wayNodes[i*3+0], _wayNodes[i*3+1], _wayNodes[i*3+2]
-              );
-    }
+//    for (int i = 0; i < _count; ++i) {
+//        NSLog(@"_waySortIndices[%d] = %d ( %f, %f, %f)", i,
+//              _wayShortIndices[i],
+//              _wayNodes[i*3+0], _wayNodes[i*3+1], _wayNodes[i*3+2]
+//              );
+//    }
     glGenBuffers(1, &way1IndicesVBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, way1IndicesVBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, (_count) * sizeof(GLushort), tmp_indices, GL_STATIC_DRAW);

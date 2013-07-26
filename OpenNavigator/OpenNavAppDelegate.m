@@ -31,20 +31,29 @@
 //    NSLog(@"Open URL: %@", url);
 //    
 //    NSData *data = [NSData dataWithContentsOfURL:url];
-    NSFileManager *filemgr;
+//    NSFileManager *filemgr;
+//
+//    filemgr = [[NSFileManager alloc] init];
+//
+//    NSString * currentpath = [filemgr currentDirectoryPath];
+//
+//    NSMutableString* fileName = [NSMutableString stringWithString:currentpath];
+//    [fileName appendString:@"/OpenNavigatorTests/TestData.osm"];
 
-    filemgr = [[NSFileManager alloc] init];
+    // Test data, Södra Skatan, Usrviken, Skellefteå
 
-    NSString * currentpath = [filemgr currentDirectoryPath];
+    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/code/python/test/OpenNavigator/OpenNavigatorTests/TestData.osm"];
+    NSRect viewRect = NSMakeRect(64.723, 21.21, 0.02, 0.02);
 
-    NSMutableString* fileName = [NSMutableString stringWithString:currentpath];
-    [fileName appendString:@"/OpenNavigatorTests/TestData.osm"];
-//    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/code/python/test/OpenNavigator/OpenNavigatorTests/TestData.osm"];
-    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/Documents/OpenStreetMap/orust_1.osm"];
-    NSLog(@"OpenData: %@", fileName);
+// Test data, Skåpesund, between Orust and Tjörn
+//    NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/Documents/OpenStreetMap/orust_1.osm"];
+//    NSRect viewRect = NSMakeRect(58.05, 11.65, 0.10, 0.10);
+
+
     _parser = [[OpenNavOsmParser alloc] init];
     [[self parser] parseOSMData:data];
     [[self window] setDelegate:[self oglview]];
+    [[self oglview] setViewRect:viewRect];
     [[self oglview] setParser:[self parser]];
 }
 

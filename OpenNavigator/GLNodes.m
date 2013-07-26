@@ -27,10 +27,10 @@
         _indexes = [[NSMutableDictionary alloc] initWithCapacity:[nodes count]];
         _bufferSize = [nodes count] * sizeof(GLfloat) * 3;
         _nodeVertices = malloc(_bufferSize);
-        min_lat = NSMinY(rect);
-        max_lat = NSMaxY(rect);
-        min_lon = NSMinX(rect);
-        max_lon = NSMaxX(rect);
+        min_lat = NSMinX(rect);
+        max_lat = NSMaxX(rect);
+        min_lon = NSMinY(rect);
+        max_lon = NSMaxY(rect);
         unsigned short cnt = 0;
 //        for (OpenNavNode* node in [nodes allValues]) {
 //            if([node lat] < min_lat) {
@@ -83,7 +83,7 @@
 {
     GLfloat ret_val = -10+((lat - min_lat)/(max_lat-min_lat)) * 20.0;
 //    NSLog(@"latToLocal: %f = %f %f %f == %f == %f", lat, min_lat, max_lat, max_lat-min_lat, (lat - min_lat) / (max_lat-min_lat), ret_val);
-    return -10+((lat - min_lat)/(max_lat-min_lat)) * 20.0;
+    return ret_val;
 }
 
 - (GLushort) indexOfNodeWithId: (NSNumber*)nodeid

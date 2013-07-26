@@ -92,6 +92,10 @@
     
     
 }
+- (void) setLineProperties
+{
+    
+}
 
 -(void) finalize
 {

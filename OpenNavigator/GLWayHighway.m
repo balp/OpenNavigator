@@ -17,12 +17,15 @@
 - (void) setLineProperties
 {
     NSString* waytype = [_navway tagValue:@"highway"];
-    if ([waytype isEqualToString:@"tertiary"]) {
+    if ([waytype isEqualToString:@"secondary"]) {
         glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
-        glLineWidth(3.5);
+        glLineWidth(4.0);
+    } else if ([waytype isEqualToString:@"tertiary"]) {
+        glColor4f(0.8f, 0.1f, 0.1f, 1.0f);
+        glLineWidth(3.0);
         glLineStipple(1, 0xffff);
     } else if ([waytype isEqualToString:@"residential"]) {
-        glColor4f(1.0f, 0.3f, 0.3f, 1.0f);
+        glColor4f(0.7f, 0.2f, 0.2f, 1.0f);
         glLineWidth(2.0);
         glLineStipple(3, 0x000f);
     } else if ([waytype isEqualToString:@"unclassified"]) {
