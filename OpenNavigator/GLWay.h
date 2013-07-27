@@ -14,23 +14,17 @@
 @interface GLWay : NSObject
 {
 @protected
-//    NSDictionary* _nodes;
-//    NSMutableDictionary* _indexes;
-//    GLushort* _wayIndices;
-//    GLushort* _wayShortIndices;
-//    GLfloat* _wayNodes;
-//    size_t _bufferSize;
-//    NSUInteger _count;
+    int _priority;
     OpenNavWay* _navway;
+    GLNodes* _nodes;
 }
-//@property (readonly) GLushort* wayIndices;
-//@property (readonly) GLfloat* wayNodes;
-//@property (readonly) GLushort* wayShortIndices;
-//
-//@property (readonly) size_t bufferSize;
+@property (readonly) int priority;
+@property (readonly) OpenNavWay* navway;
+@property (readonly) GLNodes* nodes;
 
 - (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes;
-//- (NSUInteger)count;
+
+- (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes andPriority:(int) priority;
 - (void)render;
 
 + (GLWay*) createFromWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes;

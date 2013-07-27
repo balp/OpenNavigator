@@ -11,7 +11,6 @@
 @interface GLWayFilledArea : GLWay
 {
 @protected
-    GLNodes* _nodes;
     NSColor* _color;
     GLuint listIndex;
 }

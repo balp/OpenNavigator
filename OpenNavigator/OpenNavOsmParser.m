@@ -58,7 +58,7 @@
         if(_currentWay) {
             int refval;
             [[NSScanner scannerWithString:[attributeDict valueForKey:@"ref"]] scanInt:&refval];
-            [[_currentWay nodes] addObject:[NSNumber numberWithLong:refval]];
+            [_currentWay addNode:refval];
         }
     }
 }

@@ -24,9 +24,9 @@
 @synthesize width = _width;
 
 
-- (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes andColor:(NSColor *)color andWidth:(GLfloat)width
+- (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes andColor:(NSColor *)color andWidth:(GLfloat)width andPriority:(int)priority
 {
-    if (self = [super initWithWay:way usingNodes:nodes]) {
+    if (self = [super initWithWay:way usingNodes:nodes andPriority:priority]) {
         _color = color;
         _width = width;
         _bufferSize = [[way nodes] count] * sizeof(GLushort) * 2;
@@ -36,10 +36,10 @@
         int cnt = 0;
         GLushort prevIndex = 0;
         GLushort currentIndex = 0;
-        GLdouble* nodeVertices = [nodes nodeVertices];
+        GLdouble* nodeVertices = [_nodes nodeVertices];
         _count = [[way nodes] count];
         for (NSNumber* node in [way nodes]) {
-            currentIndex = [nodes indexOfNodeWithId:node];
+            currentIndex = [_nodes indexOfNodeWithId:node];
             if (cnt > 0) {
                 _wayIndices[(cnt-1)*2 + 0] = prevIndex;
                 _wayIndices[(cnt-1)*2 + 1] = currentIndex;
@@ -48,9 +48,9 @@
             _wayNodes[cnt * 3 + 1] = nodeVertices[currentIndex*3+1];
             _wayNodes[cnt * 3 + 2] = nodeVertices[currentIndex*3+2];
 
-            _wayShortIndices[cnt*2 + 0] = cnt;
-            _wayShortIndices[cnt*2 + 1] = cnt+1 % _count;
 
+            _wayShortIndices[cnt*2 + 0] = cnt;
+            _wayShortIndices[cnt*2 + 1] = (cnt+1) % (_count);
 
             prevIndex = currentIndex;
             ++cnt;

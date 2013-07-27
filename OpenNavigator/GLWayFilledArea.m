@@ -29,7 +29,6 @@
 - (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes andColor:(NSColor *)color
 {
     if (self = [super initWithWay:way usingNodes:nodes]) {
-        _nodes = nodes;
         _color = color;
         
         listIndex = glGenLists(1);

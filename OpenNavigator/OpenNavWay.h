@@ -15,4 +15,5 @@
 
 - (id) initWithID:(int)idvalue;
 - (void) addNode:(long)nodeid;
+- (Boolean) isArea;
 @end

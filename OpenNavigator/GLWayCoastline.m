@@ -14,11 +14,12 @@
 
 @implementation GLWayCoastline
 
-- (void) setLineProperties
+- (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes
 {
-    glColor4f(0.0f, 0.0f, .9f, 1.0f);
-    glLineWidth(1.5);
-    glLineStipple(1, 0xffff);
+    if (self = [super initWithWay:way usingNodes:nodes andColor:[NSColor colorWithCalibratedRed:0.0f green:0.0f blue:0.9f alpha:1.0f] andWidth:3.0 andPriority:9]) {
+    }
+    return self;
 }
+
 
 @end

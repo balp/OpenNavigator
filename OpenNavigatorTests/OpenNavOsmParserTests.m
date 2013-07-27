@@ -41,6 +41,7 @@
 }
 
 
+
 - (void)testOSMNode_29129878
 {
     OpenNavNode* nd = [dut getNodeByID: 29129878 ];
@@ -58,6 +59,21 @@
     STAssertTrue([nd haveTag:@"traffic_calming"], @"Node doesn't have tag traffic_calming");
     STAssertEqualObjects([nd tagValue:@"traffic_calming"], @"bump", @"traffic_calming isn't bump");
 
+}
+
+
+- (void)testOSMWay_68881999_area
+{
+    OpenNavWay* way = [dut getWayByID: 68881999 ];
+    STAssertNotNil(way, @"Find way södra skatan");
+    STAssertTrue([way isArea], @"Södra skatan is a area");
+}
+
+- (void)testOSMWay_67628281_area
+{
+    OpenNavWay* way = [dut getWayByID: 67628281 ];
+    STAssertNotNil(way, @"Find way kolvägen");
+    STAssertFalse([way isArea], @"Kolvägen is a area");
 }
 
 

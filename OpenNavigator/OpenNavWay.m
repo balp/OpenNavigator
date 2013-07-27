@@ -23,6 +23,11 @@
 
 - (void) addNode:(long)nodeid
 {
-    
+    [nodes addObject:[NSNumber numberWithLong:nodeid]];
+}
+
+- (Boolean) isArea
+{
+    return nodes[0] == nodes[[nodes count]-1];
 }
 @end

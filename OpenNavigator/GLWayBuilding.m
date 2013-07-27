@@ -10,9 +10,6 @@
 
 @implementation GLWayBuilding
 
-- (void) setAreaProperties
-{
-    glColor4f([_color redComponent], [_color greenComponent], [_color blueComponent ], [_color alphaComponent]);
-}
+
 
 @end

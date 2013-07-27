@@ -11,7 +11,6 @@
 @interface GLWayLines : GLWay
 {
 @protected
-    NSDictionary* _nodes;
     NSMutableDictionary* _indexes;
     GLushort* _wayShortIndices;
     GLdouble* _wayNodes;
@@ -27,7 +26,7 @@
 @property NSColor* color;
 @property GLfloat width;
 
-- (id) initWithWay:(OpenNavWay *)way usingNodes:(GLNodes *)nodes andColor: (NSColor*)color andWidth:(GLfloat)width;
+- (id) initWithWay:(OpenNavWay *)way usingNodes:(GLNodes *)nodes andColor: (NSColor*)color andWidth:(GLfloat)width andPriority:(int)priority;
 
 - (void) setLineProperties;
 - (void) renderLine;

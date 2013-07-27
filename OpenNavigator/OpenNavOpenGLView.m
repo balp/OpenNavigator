@@ -172,7 +172,7 @@
         glTranslatef(-0.0f, -0.0f, -15.75f);
         glRotatef(-30 + sin(angle)*30, 1.0f, 0.0f, 0.0f);
 
-
+        // This is a rect to show the "target" transfomration -10,-10 to 10,10
         glColor4f(0.7f, 0.7f, 0.7f, 1.0f);
         glEnableClientState(GL_VERTEX_ARRAY);
 
@@ -184,6 +184,7 @@
 
         glDisableClientState(GL_VERTEX_ARRAY);
 
+        // And render all ways
         for (GLWay* way in [_glways objectEnumerator]) {
             [way render];
         }
@@ -243,8 +244,17 @@
 
     for (OpenNavWay* nway in [[_parser ways] objectEnumerator]) {
         GLWay* way = [GLWay createFromWay:nway usingNodes:myNodes];
-        [_glways addObject:way];
-
+        int i = 0;
+        for (i = 0; i < [_glways count]; ++i) {
+            GLWay* tmpWay = _glways[i];
+            if ([way priority] < [tmpWay priority]) {
+                [_glways insertObject:way atIndex:i];
+                break;
+            }
+        }
+        if (i == [_glways count]) {
+            [_glways addObject:way];
+        }
     }
 
 }

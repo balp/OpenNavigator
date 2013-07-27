@@ -47,7 +47,7 @@
 
 // Test data, Skåpesund, between Orust and Tjörn
     NSData* data = [NSData dataWithContentsOfFile:@"/Users/balp/Documents/OpenStreetMap/orust_1.osm"];
-    NSRect viewRect = NSMakeRect(58.05, 11.65, 0.08, 0.08);
+    NSRect viewRect = NSMakeRect(58.052, 11.689, 0.03, 0.03);
 
 
     _parser = [[OpenNavOsmParser alloc] init];

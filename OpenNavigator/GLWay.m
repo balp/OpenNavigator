@@ -28,12 +28,25 @@
 //@end
 
 @implementation GLWay
+@synthesize priority = _priority;
+@synthesize navway = _navway;
+@synthesize nodes = _nodes;
 
-
+- (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes andPriority:(int)priority
+{
+    if (self = [super init]) {
+        _priority = priority;
+        _navway = way;
+        _nodes = nodes;
+    }
+    return self;
+}
 - (id) initWithWay: (OpenNavWay*)way usingNodes: (GLNodes*)nodes
 {
     if (self = [super init]) {
+        _priority = 10;
         _navway = way;
+        _nodes = nodes;
     }
     return self;
 }
@@ -58,7 +71,7 @@
         return [[GLWayBuilding alloc] initWithWay:way usingNodes:nodes andColor:[NSColor colorWithCalibratedRed:0.7 green:0.4 blue:0.4 alpha:0.5]];
     } else if ([way haveTag:@"natural"]) {
         if ([[way tagValue:@"natural"] isEqualToString:@"coastline"]) {
-            if ([way haveTag:@"place"]) {
+            if ([way haveTag:@"place"] || [way isArea]) {
                 return [[GLWayFilledArea alloc] initWithWay:way usingNodes:nodes  andColor:[NSColor colorWithCalibratedRed:0.2 green:0.6 blue:0.2 alpha:0.5]];
             }
             return [[GLWayCoastline alloc] initWithWay:way usingNodes:nodes];
@@ -111,7 +124,11 @@
         return [[GLWay alloc] initWithWay:way usingNodes:nodes];
     } else if ([way haveTag:@"boundary"]) {
         if ([[way tagValue:@"boundary"] isEqualToString:@"national_park"]) {
-            return [[GLWayOutlineArea alloc] initWithWay:way usingNodes:nodes andColor:[NSColor colorWithCalibratedRed:0.4 green:0.7 blue:1.0 alpha:0.5] andWidth:1.0];
+            if ([way isArea]) {
+                return [[GLWayOutlineArea alloc] initWithWay:way usingNodes:nodes andColor:[NSColor colorWithCalibratedRed:0.4 green:0.7 blue:1.0 alpha:0.5] andWidth:1.0 andPriority:12];
+
+            }
+            return [[GLWayLines alloc] initWithWay:way usingNodes:nodes andColor:[NSColor colorWithCalibratedRed:0.4 green:0.7 blue:1.0 alpha:0.5] andWidth:1.0 andPriority:12];
         }
         if ([[way tagValue:@"boundary"] isEqualToString:@"administrative"]) {
             GLfloat width = 7;
@@ -119,7 +136,11 @@
                 NSString* lvl = [way tagValue:@"admin_level"];
                 width = 10.0 - [lvl intValue];
             }
-            return [[GLWayOutlineArea alloc] initWithWay:way usingNodes:nodes andColor:[NSColor colorWithCalibratedRed:1.0 green:1.0 blue:1.0 alpha:0.5] andWidth:width];
+            if ([way isArea]) {
+                return [[GLWayOutlineArea alloc] initWithWay:way usingNodes:nodes andColor:[NSColor colorWithCalibratedRed:1.0 green:1.0 blue:1.0 alpha:0.5] andWidth:width andPriority:11];
+
+            }
+            return [[GLWayLines alloc] initWithWay:way usingNodes:nodes andColor:[NSColor colorWithCalibratedRed:1.0 green:1.0 blue:1.0 alpha:0.5] andWidth:width andPriority:11];
         }
         return [[GLWay alloc] initWithWay:way usingNodes:nodes];
     } else if ([way haveTag:@"leisure"]) {
@@ -136,7 +157,7 @@
         return [[GLWayWaterway alloc] initWithWay:way usingNodes:nodes];
     } else if ([way haveTag:@"route"]) {
         if ([[way tagValue:@"route"] isEqualToString:@"ferry"]) {
-            return [[GLWayLines alloc] initWithWay:way usingNodes:nodes  andColor:[NSColor colorWithCalibratedRed:0.2 green:0.6 blue:0.2 alpha:0.5] andWidth:2.0];
+            return [[GLWayLines alloc] initWithWay:way usingNodes:nodes  andColor:[NSColor colorWithCalibratedRed:0.2 green:0.6 blue:0.2 alpha:0.5] andWidth:2.0 andPriority:11];
         }
         return [[GLWay alloc] initWithWay:way usingNodes:nodes];
     } else if ([way haveTag:@"area"]) {
