@@ -27,11 +27,17 @@
     GLNodes* myNodes;
     NSRect _viewRect;
     NSMutableArray* _glways;
+    long _way;
+    long _wayIndex;
+    GLfloat transX;
+    GLfloat transY;
 }
 @property NSRect viewRect;
 
 - (void) setViewRect: (NSRect) area;
+- (void) viewPos: (NSPoint)center andZoom: (double)zoom;
 - (void) setParser: (OpenNavOsmParser*) parser;
+- (void) followWay: (long)wayId;
 - (void) drawRect: (NSRect) bounds;
 - (void) setUp;
 - (void) update;

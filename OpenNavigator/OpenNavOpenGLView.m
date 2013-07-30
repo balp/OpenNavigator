@@ -104,6 +104,8 @@
 //	glEnable(GL_DEPTH_TEST);
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     _glways = [[NSMutableArray alloc] init];
+    _way = 0;
+    _wayIndex = 0;
     NSLog(@"OpenNavOpenGLView::initialize--");
 
 }
@@ -144,8 +146,22 @@
 @end
 
 @implementation OpenNavOpenGLView
-@synthesize viewRect = _viewRect;
+//@synthesize viewRect = _viewRect;
+-(NSRect) viewRect
+{
+    @synchronized (self) {
+        return self->_viewRect;
+    }
+}
 
+- (void)setViewRect:(NSRect)area
+{
+    _viewRect = area;
+    transX = 0.0f;
+    transY = 0.0f;
+
+    [self setNeedsDisplay:YES];
+}
 
 - (void) setUp
 {
@@ -169,8 +185,10 @@
         static GLfloat angle = 0.0f;
         angle += (1/60.0);
         glLoadIdentity();
-        glTranslatef(-0.0f, -0.0f, -15.75f);
-        glRotatef(-30 + sin(angle)*30, 1.0f, 0.0f, 0.0f);
+        glTranslatef(-transX, -transY, -15.75f);
+
+//        glRotatef(-30 + sin(angle)*30, 1.0f, 0.0f, 0.0f);
+//        glRotatef(angle*6, 0.0f, 0.0f, 1.0f);
 
         // This is a rect to show the "target" transfomration -10,-10 to 10,10
         glColor4f(0.7f, 0.7f, 0.7f, 1.0f);
@@ -230,10 +248,6 @@
 
 - (void) setParser: (OpenNavOsmParser*) parser
 {
-//    if (_parser != nil) {
-//        glDeleteBuffers(1, &nodeVerticesVBO);
-//        glDeleteBuffers(1, &way1IndicesVBO);
-//    }
     _parser = parser;
     [self setNeedsDisplay:YES];
 
@@ -241,7 +255,7 @@
     //int x = [_parser nodes];
     nodeCorners = malloc([mjupp count] * sizeof(GLdouble));
     myNodes = [[GLNodes alloc] initWithNodes:[_parser nodes] andBounds:_viewRect ];
-
+    [_glways removeAllObjects];
     for (OpenNavWay* nway in [[_parser ways] objectEnumerator]) {
         GLWay* way = [GLWay createFromWay:nway usingNodes:myNodes];
         int i = 0;
@@ -267,30 +281,81 @@
     return self;
 }
 
-static NSTimer *timer = nil;
+static NSTimer *renderTimer = nil;
+static NSTimer *moveTimer = nil;
+
 //
 - (void)windowDidResignMain:(NSNotification *)notification {
     NSLog(@"OpenNavOpenGLView::windowDidResignMain");
-    [timer invalidate];
-
+    [renderTimer invalidate];
+    [moveTimer invalidate];
     [self setNeedsDisplay:YES];
 }
 
 - (void)windowDidBecomeMain:(NSNotification *)notification {
     NSLog(@"OpenNavOpenGLView::windowDidBecomeMain");
-    timer = [NSTimer timerWithTimeInterval:(1/10)
+    renderTimer = [NSTimer timerWithTimeInterval:(1.0f/60.0f)
                                     target:self
                                   selector:@selector(timerEvent:)
                                   userInfo:nil
                                    repeats:YES];
+    moveTimer = [NSTimer timerWithTimeInterval:(1.0f)
+                                          target:self
+                                        selector:@selector(timerEvent:)
+                                        userInfo:nil
+                                         repeats:YES];
+    
 
-    NSLog(@"Got timer %@", timer);
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    NSLog(@"Got timer %@", renderTimer);
+    [[NSRunLoop mainRunLoop] addTimer:renderTimer forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop mainRunLoop] addTimer:moveTimer forMode:NSDefaultRunLoopMode];
 }
+
 
 - (void)timerEvent:(NSTimer *)t {
-    NSLog(@"timerEvent()");
+//    NSLog(@"timerEvent(): %@", t);
+    if (_way && _parser && t == moveTimer) {
+        NSLog(@"We should follow way: %ld, to %ld",_way, _wayIndex);
+        OpenNavWay* myWay = [_parser getWayByID:_way];
+        NSNumber* nodeID = [myWay nodes][_wayIndex];
+        long nodeId = [nodeID longValue];
+        OpenNavNode* centerPos = [_parser getNodeByID:nodeId];
+        NSLog(@"Center at %f,%f", [centerPos lat], [centerPos lon]);
+        [self viewPos:NSMakePoint([centerPos lat], [centerPos lon]) andZoom:0.02];
+        _wayIndex = (_wayIndex + 1 ) % ([[myWay nodes] count]);
+    }
     [self setNeedsDisplay:YES];
 }
+
+- (void) followWay:(long)wayId
+{
+    _way = wayId;
+    _wayIndex = 0;
+    
+}
+
+- (void) viewPos: (NSPoint)center andZoom: (double)zoom
+{
+    GLdouble nx = [myNodes latToLocal:center.x];
+    GLdouble ny = [myNodes lonToLocal:center.y];
+    NSLog(@"New center %lf,%lf -> %lf,%lf  %lf->%lf",
+          center.x, center.y, nx,ny,
+          _viewRect.size.height, _viewRect.size.width);
+
+    if (_viewRect.size.height == zoom
+        && nx < 3.0f && nx > -3.0f
+        && ny < 3.0f && ny > -3.0f)
+    {
+        NSLog(@"Small change %lf,%lf -> %lf,%lf", _viewRect.origin.x,_viewRect.origin.y, center.x-(zoom/2), center.y-(zoom/2));
+        transX = ny;
+        transY = nx;
+    }
+    else
+    {
+        [self setViewRect:NSMakeRect(center.x-(zoom/2), center.y-(zoom/2), zoom, zoom)];
+        [self setParser:_parser];
+    }
+}
+
 
 @end
